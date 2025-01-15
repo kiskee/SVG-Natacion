@@ -4,13 +4,30 @@ import logo from "../assets/final.png";
 import { useState, useContext } from "react";
 import SingInDialog from "./SingInDialog";
 import { UserDetailContext } from "@/context/UserDetailContext";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { googleLogout } from "@react-oauth/google";
 
 
 export default function Header() {
   const [openSingINDialog, setOpenSingINDialog] = useState(false);
 
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
+
+  const onLogOut = () => {
+    googleLogout(); // Cierra sesión de Google
+    setUserDetail(null); // Limpia el contexto
+    navigate("/", { replace: true }); // Redirige al inicio
+  };
   return (
     <header className="relative bg-black text-white w-full border-b border-cyan-500/60">
       {/* Background Pattern - matching hero section */}
@@ -41,7 +58,7 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        <nav className="relative z-10">
+        { !userDetail ? (<nav className="relative z-10">
           <ul className="flex space-x-4 flex-row ss:flex-col ss:space-4 ss:text-center ss:mb-4 ss:gap-y-2 ss:items-center sm:mb-4 ss:space-x-0">
             <Button
               className="bg-black/50 w-24 text-white border border-cyan-500/20 backdrop-blur-sm hover:bg-cyan-500/20 transition-colors"
@@ -54,7 +71,51 @@ export default function Header() {
               <Link to="/register"> Registrate</Link>
             </Button>
           </ul>
-        </nav>
+        </nav>) : (<div className="flex flex-row">
+           
+           <DropdownMenu >
+             <DropdownMenuTrigger asChild className="m-6">
+               <Button className="bg-cyan-600 text-white">Menu</Button>
+             </DropdownMenuTrigger>
+             <DropdownMenuContent className="w-24 bg-black flex items-center flex-col">
+               <DropdownMenuSeparator />
+               <DropdownMenuGroup>
+               <DropdownMenuItem className="bg-white m-2 hover:bg-lime-500">
+                   <Link to="/" >Home</Link>
+                 </DropdownMenuItem>
+                 <DropdownMenuItem className="bg-white m-2 hover:bg-lime-500">
+                   <Link to="/page1">Full List</Link>
+                 </DropdownMenuItem>
+               </DropdownMenuGroup>
+             </DropdownMenuContent>
+           </DropdownMenu>
+
+           <DropdownMenu>
+             <DropdownMenuTrigger asChild>
+               <Avatar className="m-4">
+                 <AvatarImage src={userDetail.picture} />
+                 <AvatarFallback>{userDetail.given_name}</AvatarFallback>
+               </Avatar>
+             </DropdownMenuTrigger>
+             <DropdownMenuContent className="w-56 bg-white">
+               <DropdownMenuLabel>{userDetail.name}</DropdownMenuLabel>
+               <DropdownMenuSeparator />
+               <DropdownMenuGroup>
+                 <DropdownMenuItem>Profile</DropdownMenuItem>
+                 <DropdownMenuItem>Billing</DropdownMenuItem>
+                 <DropdownMenuItem>Settings</DropdownMenuItem>
+                 <DropdownMenuItem>Keyboard shortcuts</DropdownMenuItem>
+               </DropdownMenuGroup>
+               <DropdownMenuSeparator />
+               <DropdownMenuItem
+                 onClick={onLogOut}
+                 className="bg-cyan-400 rounded"
+               >
+                 Log out
+               </DropdownMenuItem>
+             </DropdownMenuContent>
+           </DropdownMenu>
+         </div>)}
       </div>
       <SingInDialog
         openDialog={openSingINDialog}
