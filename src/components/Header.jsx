@@ -5,11 +5,11 @@ import { useState, useContext } from "react";
 import SingInDialog from "./SingInDialog";
 import { UserDetailContext } from "@/context/UserDetailContext";
 import { Link } from "react-router-dom";
-import SingUpDialog from "./SingUpDialog";
+
 
 export default function Header() {
   const [openSingINDialog, setOpenSingINDialog] = useState(false);
-  const [openSingUpDialog, setOpenSingUpDialog] = useState(false);
+
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   return (
     <header className="relative bg-black text-white w-full border-b border-cyan-500/60">
@@ -50,7 +50,8 @@ export default function Header() {
               Ingresa
             </Button>
             <Button className="bg-cyan-500 text-black hover:bg-cyan-400 transition-colors w-24" onClick={() => setOpenSingUpDialog(true)}>
-              Registrate
+              
+              <Link to="/register"> Registrate</Link>
             </Button>
           </ul>
         </nav>
@@ -59,8 +60,7 @@ export default function Header() {
         openDialog={openSingINDialog}
         closeDialog={(v) => setOpenSingINDialog(v)}
       />
-      <SingUpDialog  openDialog={openSingUpDialog}
-        closeDialog={(v) => setOpenSingUpDialog(v)}/>
+      
 
     </header>
   );

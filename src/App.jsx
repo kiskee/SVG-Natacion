@@ -3,7 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import Home from "./pages/Home";
 import Layaut from "./components/Layaut";
 import Info from './pages/Info'
-import Page2 from './pages/Page2'
+import Register from './pages/Register'
 
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
             {/* Define the route for the "Nosotros" page */}
             <Route path="/info" element={<Info />} />
             {/* Define the route for the "Proyectos" page */}
-            <Route path="/page2" element={<Page2 />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </Layaut>
      
