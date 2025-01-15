@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Hero() {
   // body
   return (
@@ -24,9 +26,11 @@ export default function Hero() {
           <button className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition-colors">
             Comenzar Ahora
           </button>
-          <button className="px-8 py-3 border-2 border-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-500/20 transition-colors">
-            Más Información
-          </button>
+          <Link to="/info" className="px-8 py-3 border-2 border-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-500/20 transition-colors">
+            <button >
+              Más Información
+            </button>
+          </Link>
         </div>
 
         {/* Stats Section */}
