@@ -1,36 +1,45 @@
+import React from 'react';
 import { Button } from "@/components/ui/button";
-import logo from '../assets/final.png'
+import logo from '../assets/final.png';
 
 export default function Header() {
   return (
-    <header className="bg-black text-white shadow-lg w-full border-b border-cyan-400 border-opacity-60 ss:pb-4">
-      <div className="container mx-auto  flex items-center justify-between md:flex-col sm:flex-col ss:flex-col md:justify-center md:mb-4">
-        {/* Título */}
+    <header className="relative bg-black text-white w-full border-b border-cyan-500/60">
+      {/* Background Pattern - matching hero section */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent"></div>
+      </div>
+
+      <div className="container mx-auto flex items-center justify-between md:flex-col sm:flex-col ss:flex-col md:justify-center md:mb-4 relative z-10">
+        {/* Logo + Title */}
         <div className="flex items-center relative z-10 ss:flex-col my-4">
           <img
             src={logo}
             alt="EthLand Logo"
             style={{ height: 120, width: 200 }}
+            className="relative z-10"
           />
-          <h1
-            className="text-3xl font-bold text-lime-600
+          <h1 className="text-3xl font-bold ml-6 sss:hidden
             bg-clip-text 
             text-transparent 
             bg-gradient-to-r 
             from-cyan-400 
             to-blue-600 
-            drop-shadow-[0_2px_4px_rgba(245,158,11,0.3)] sss:hidden ml-6"
+            drop-shadow-[0_2px_4px_rgba(0,236,255,0.3)]"
           >
             SVG - Natacion
           </h1>
         </div>
 
-        {/* Navegación */}
-
-        <nav>
+        {/* Navigation */}
+        <nav className="relative z-10">
           <ul className="flex space-x-4 flex-row ss:flex-col ss:space-4 ss:text-center">
-            <Button className="bg-black text-white">Ingresa</Button>
-            <Button className="bg-cyan-600 text-white">Registrate</Button>
+            <Button className="bg-black/50 text-white border border-cyan-500/20 backdrop-blur-sm hover:bg-cyan-500/20 transition-colors">
+              Ingresa
+            </Button>
+            <Button className="bg-cyan-500 text-black hover:bg-cyan-400 transition-colors">
+              Registrate
+            </Button>
           </ul>
         </nav>
       </div>
