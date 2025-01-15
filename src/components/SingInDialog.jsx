@@ -36,7 +36,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
                 className="relative z-10 mt-2"
               />
             </DialogTitle>
-            <DialogDescription className="mt-2 text-center text-xl">
+            <DialogDescription className="mt-2 text-center text-xl text-white">
               Para usar SVG - Natacion deberas ingresar en una cuenta existente
               o crear una nueva
             </DialogDescription>
@@ -71,8 +71,8 @@ export default function SingInDialog({ openDialog, closeDialog }) {
             Ingresa Con Google
           </Button>
           <p className="text-xs">
-            By using Body-form, you agree to the collection of usage data for
-            analytics
+          Al utilizar SVG - Natacion, acepta la recopilación de datos de uso para
+          análisis
           </p>
         </DialogContent>
       </Dialog>

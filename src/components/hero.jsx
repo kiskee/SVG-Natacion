@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { UserDetailContext } from "@/context/UserDetailContext";
+import SingUpDialog from "./SingUpDialog";
 
 export default function Hero() {
+  const [openDialog, setOpenDialog] = useState(false);
+  const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const onSubmit = () => {
+    if (!userDetail?.name) {
+      setOpenDialog(true);
+      return;
+    }
+  };
   // body
   return (
     <div className="relative bg-black min-h-screen flex items-center justify-center overflow-hidden">
@@ -23,7 +34,8 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition-colors">
+          <button className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition-colors"
+           onClick={onSubmit}>
             Comenzar Ahora
           </button>
           <Link to="/info" className="px-8 py-3 border-2 border-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-500/20 transition-colors">
@@ -49,6 +61,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <SingUpDialog  openDialog={openDialog}
+        closeDialog={(v) => setOpenDialog(v)}/>
     </div>
   );
 }
