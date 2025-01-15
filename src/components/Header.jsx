@@ -1,8 +1,13 @@
-import React from 'react';
+import React from "react";
 import { Button } from "@/components/ui/button";
-import logo from '../assets/final.png';
+import logo from "../assets/final.png";
+import { useState, useContext } from "react";
+import SingInDialog from "./SingInDialog";
+import { UserDetailContext } from "@/context/UserDetailContext";
 
 export default function Header() {
+  const [openDialog, setOpenDialog] = useState(false);
+  const { userDetail, setUserDetail } = useContext(UserDetailContext);
   return (
     <header className="relative bg-black text-white w-full border-b border-cyan-500/60">
       {/* Background Pattern - matching hero section */}
@@ -19,7 +24,8 @@ export default function Header() {
             style={{ height: 120, width: 200 }}
             className="relative z-10"
           />
-          <h1 className="text-3xl font-bold ml-6 sss:hidden
+          <h1
+            className="text-3xl font-bold ml-6 sss:hidden
             bg-clip-text 
             text-transparent 
             bg-gradient-to-r 
@@ -33,16 +39,23 @@ export default function Header() {
 
         {/* Navigation */}
         <nav className="relative z-10">
-          <ul className="flex space-x-4 flex-row ss:flex-col ss:space-4 ss:text-center">
-            <Button className="bg-black/50 text-white border border-cyan-500/20 backdrop-blur-sm hover:bg-cyan-500/20 transition-colors">
+          <ul className="flex space-x-4 flex-row ss:flex-col ss:space-4 ss:text-center ss:mb-4 ss:gap-y-2 ss:items-center sm:mb-4 ss:space-x-0">
+            <Button
+              className="bg-black/50 w-24 text-white border border-cyan-500/20 backdrop-blur-sm hover:bg-cyan-500/20 transition-colors"
+              onClick={() => setOpenDialog(true)}
+            >
               Ingresa
             </Button>
-            <Button className="bg-cyan-500 text-black hover:bg-cyan-400 transition-colors">
+            <Button className="bg-cyan-500 text-black hover:bg-cyan-400 transition-colors w-24">
               Registrate
             </Button>
           </ul>
         </nav>
       </div>
+      <SingInDialog
+        openDialog={openDialog}
+        closeDialog={(v) => setOpenDialog(v)}
+      />
     </header>
   );
 }
