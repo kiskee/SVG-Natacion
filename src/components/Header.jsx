@@ -4,6 +4,7 @@ import logo from "../assets/final.png";
 import { useState, useContext } from "react";
 import SingInDialog from "./SingInDialog";
 import { UserDetailContext } from "@/context/UserDetailContext";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [openDialog, setOpenDialog] = useState(false);
@@ -33,7 +34,7 @@ export default function Header() {
             to-blue-600 
             drop-shadow-[0_2px_4px_rgba(0,236,255,0.3)]"
           >
-            SVG - Natacion
+            <Link to="/"> SVG - Natacion</Link>
           </h1>
         </div>
 

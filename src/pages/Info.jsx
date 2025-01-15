@@ -70,6 +70,9 @@ export default function Info() {
         <div className="grid gap-6 md:grid-cols-2">
           {/* Estudios Card */}
           <div className="bg-black/50 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-6">
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent"></div>
+            </div>
             <h3 className="text-2xl font-semibold text-cyan-500 mb-4 text-center">
               Estudios medios y superiores
             </h3>
@@ -94,6 +97,9 @@ export default function Info() {
 
           {/* Cursos Impartidos Card */}
           <div className="bg-black/50 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-6">
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent"></div>
+            </div>
             <h3 className="text-2xl font-semibold text-cyan-500 mb-4 text-center">
               Cursos y Conferencias Impartidos
             </h3>
@@ -117,6 +123,9 @@ export default function Info() {
       {/* Actividades Internacionales */}
       <div className="container mx-auto px-6 py-12">
         <div className="bg-black/80 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-6">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent"></div>
+          </div>
           <h3 className="text-2xl font-semibold text-cyan-500 mb-4 text-center">
             Actividades en Organismos Deportivos Internacionales
           </h3>

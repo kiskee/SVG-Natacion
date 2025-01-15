@@ -13,6 +13,8 @@ export default function SingInDialog({ openDialog, closeDialog }) {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   // body
   return (
+
+    <>
     <Dialog open={openDialog} onOpenChange={closeDialog} className="bg-white ">
       <DialogContent className="bg-black text-white flex flex-col items-center justify-center gap-3">
         <DialogHeader>
@@ -38,5 +40,6 @@ export default function SingInDialog({ openDialog, closeDialog }) {
         </p>
       </DialogContent>
     </Dialog>
+    </>
   );
 }
