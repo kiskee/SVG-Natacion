@@ -10,7 +10,7 @@ export default function Layaut({ children }) {
       <Header />
 
       {/* Dynamic content passed as children */}
-      <div className="mt-8">{children}</div>
+      <div className="">{children}</div>
       {/* Pie de página */}
       <Footer />
     </div>
