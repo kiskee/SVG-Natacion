@@ -115,7 +115,7 @@ export default function SingUpDialog() {
                         <Input
                           placeholder="peduarte@me.com"
                           type="email"
-                          className="w-full"
+                          className="w-2/3"
                           {...field}
                         />
                       </FormControl>
@@ -135,7 +135,7 @@ export default function SingUpDialog() {
                       <FormControl>
                         <Input
                           placeholder="Pedro"
-                          className="w-full"
+                          className="w-2/3"
                           {...field}
                         />
                       </FormControl>
@@ -155,7 +155,7 @@ export default function SingUpDialog() {
                       <FormControl>
                         <Input
                           placeholder="Duarte"
-                          className="w-full"
+                          className="w-2/3"
                           {...field}
                         />
                       </FormControl>
@@ -175,7 +175,7 @@ export default function SingUpDialog() {
                       <FormControl>
                         <Input
                           placeholder="peduarte"
-                          className="w-full"
+                          className="w-2/3"
                           {...field}
                         />
                       </FormControl>
@@ -195,7 +195,7 @@ export default function SingUpDialog() {
                       <FormControl>
                         <Input
                           type="password"
-                          className="w-full"
+                          className="w-2/3"
                           placeholder="Hello@123"
                           {...field}
                         />
