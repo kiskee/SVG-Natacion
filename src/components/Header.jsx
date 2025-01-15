@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import logo from "../assets/final.png";
 import { useState, useContext } from "react";
@@ -17,11 +16,18 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { googleLogout } from "@react-oauth/google";
 
-
 export default function Header() {
   const [openSingINDialog, setOpenSingINDialog] = useState(false);
-
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const navigate = useNavigate();
+
+  
+  const onSubmit = () => {
+    if (!userDetail?.name) {
+      setOpenDialog(true);
+      return;
+    }
+  };
 
   const onLogOut = () => {
     googleLogout(); // Cierra sesión de Google
@@ -58,71 +64,74 @@ export default function Header() {
         </div>
 
         {/* Navigation */}
-        { !userDetail ? (<nav className="relative z-10">
-          <ul className="flex space-x-4 flex-row ss:flex-col ss:space-4 ss:text-center ss:mb-4 ss:gap-y-2 ss:items-center sm:mb-4 ss:space-x-0">
-            <Button
-              className="bg-black/50 w-24 text-white border border-cyan-500/20 backdrop-blur-sm hover:bg-cyan-500/20 transition-colors"
-              onClick={() => setOpenSingINDialog(true)}
-            >
-              Ingresa
-            </Button>
-            <Button className="bg-cyan-500 text-black hover:bg-cyan-400 transition-colors w-24" onClick={() => setOpenSingUpDialog(true)}>
-              
-              <Link to="/register"> Registrate</Link>
-            </Button>
-          </ul>
-        </nav>) : (<div className="flex flex-row">
-           
-           <DropdownMenu >
-             <DropdownMenuTrigger asChild className="m-6">
-               <Button className="bg-cyan-600 text-white">Menu</Button>
-             </DropdownMenuTrigger>
-             <DropdownMenuContent className="w-24 bg-black flex items-center flex-col">
-               <DropdownMenuSeparator />
-               <DropdownMenuGroup>
-               <DropdownMenuItem className="bg-white m-2 hover:bg-lime-500">
-                   <Link to="/" >Home</Link>
-                 </DropdownMenuItem>
-                 <DropdownMenuItem className="bg-white m-2 hover:bg-lime-500">
-                   <Link to="/page1">Full List</Link>
-                 </DropdownMenuItem>
-               </DropdownMenuGroup>
-             </DropdownMenuContent>
-           </DropdownMenu>
+        {!userDetail ? (
+          <nav className="relative z-10">
+            <ul className="flex space-x-4 flex-row ss:flex-col ss:space-4 ss:text-center ss:mb-4 ss:gap-y-2 ss:items-center sm:mb-4 ss:space-x-0">
+              <Button
+                className="bg-black/50 w-24 text-white border border-cyan-500/20 backdrop-blur-sm hover:bg-cyan-500/20 transition-colors"
+                onClick={() => setOpenSingINDialog(true)}
+              >
+                Ingresa
+              </Button>
+              <Button
+                className="bg-cyan-500 text-black hover:bg-cyan-400 transition-colors w-24"
+                //onClick={() => setOpenSingUpDialog(true)}
+              >
+                <Link to="/register"> Registrate</Link>
+              </Button>
+            </ul>
+          </nav>
+        ) : (
+          <div className="flex flex-row">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild className="m-6">
+                <Button className="bg-cyan-600 text-white">Menu</Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-24 bg-black flex items-center flex-col">
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem className="bg-white m-2 hover:bg-lime-500">
+                    <Link to="/">Home</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="bg-white m-2 hover:bg-lime-500">
+                    <Link to="/page1">Full List</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-           <DropdownMenu>
-             <DropdownMenuTrigger asChild>
-               <Avatar className="m-4">
-                 <AvatarImage src={userDetail.picture} />
-                 <AvatarFallback>{userDetail.given_name}</AvatarFallback>
-               </Avatar>
-             </DropdownMenuTrigger>
-             <DropdownMenuContent className="w-56 bg-white">
-               <DropdownMenuLabel>{userDetail.name}</DropdownMenuLabel>
-               <DropdownMenuSeparator />
-               <DropdownMenuGroup>
-                 <DropdownMenuItem>Profile</DropdownMenuItem>
-                 <DropdownMenuItem>Billing</DropdownMenuItem>
-                 <DropdownMenuItem>Settings</DropdownMenuItem>
-                 <DropdownMenuItem>Keyboard shortcuts</DropdownMenuItem>
-               </DropdownMenuGroup>
-               <DropdownMenuSeparator />
-               <DropdownMenuItem
-                 onClick={onLogOut}
-                 className="bg-cyan-400 rounded"
-               >
-                 Log out
-               </DropdownMenuItem>
-             </DropdownMenuContent>
-           </DropdownMenu>
-         </div>)}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Avatar className="m-4">
+                  <AvatarImage src={userDetail.picture} />
+                  <AvatarFallback>{userDetail.given_name}</AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 bg-white">
+                <DropdownMenuLabel>{userDetail.name}</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>Profile</DropdownMenuItem>
+                  <DropdownMenuItem>Billing</DropdownMenuItem>
+                  <DropdownMenuItem>Settings</DropdownMenuItem>
+                  <DropdownMenuItem>Keyboard shortcuts</DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  onClick={onLogOut}
+                  className="bg-cyan-400 rounded"
+                >
+                  Log out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        )}
       </div>
       <SingInDialog
         openDialog={openSingINDialog}
         closeDialog={(v) => setOpenSingINDialog(v)}
       />
-      
-
     </header>
   );
 }

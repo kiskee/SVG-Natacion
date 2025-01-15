@@ -15,9 +15,59 @@ import logo from "../assets/final.png";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { apiService } from "../services/apiService";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useNavigate } from "react-router-dom";
+
+const formSchema = z.object({
+  usuario: z
+    .string()
+    .min(3, { message: "El usuario debe tener al menos 3 caracteres" })
+    .max(20, { message: "El usuario no puede tener más de 20 caracteres" }),
+  email: z
+    .string()
+    .min(1, { message: "El email es requerido" })
+    .email({ message: "Debe ser un email válido" }),
+  password: z
+    .string()
+    .min(8, { message: "La contraseña debe tener al menos 8 caracteres" })
+    .max(50, { message: "La contraseña no puede tener más de 50 caracteres" })
+    .regex(/^(?=.*[a-z])/, {
+      message: "La contraseña debe incluir al menos una letra minúscula",
+    })
+    .regex(/^(?=.*[A-Z])/, {
+      message: "La contraseña debe incluir al menos una letra mayúscula",
+    })
+    .regex(/^(?=.*\d)/, {
+      message: "La contraseña debe incluir al menos un número",
+    })
+    .regex(/^(?=.*[@$!%*?&])/, {
+      message:
+        "La contraseña debe incluir al menos un carácter especial (@$!%*?&)",
+    }),
+});
 
 export default function SingInDialog({ openDialog, closeDialog }) {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const navigate = useNavigate();
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      usuario: "",
+      email: "",
+      password: "",
+    },
+  });
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -30,7 +80,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
         );
 
         const user = userInfo.data;
-        console.log("aca el usuario", user)
+        console.log("aca el usuario", user);
         // Enviar el login y obtener el JWT
         const login = await apiService.post("/auth/login", user);
 
@@ -50,15 +100,21 @@ export default function SingInDialog({ openDialog, closeDialog }) {
   async function onSubmit(values) {
     try {
       const user = values;
-      console.log(user)
+      console.log(user);
       // const login = await apiService.post("/auth/login", user);
       // setUserDetail({
       //   ...user,
       //   token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
       // });
+      // closeDialog(false);
     } catch (error) {
       console.error("Error during login", error);
     }
+  }
+
+  const OnRegister = () => {
+    closeDialog(false);
+    navigate("/register", { replace: true });
   }
   // body
   return (
@@ -86,55 +142,110 @@ export default function SingInDialog({ openDialog, closeDialog }) {
               o crear una nueva
             </DialogDescription>
           </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                Username
-              </Label>
-              <Input
-                id="name"
-                className="col-span-3"
-                placeHolder="Pedro Duarte"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="username" className="text-right">
-                Email
-              </Label>
-              <Input
-                id="username"
-                type="email"
-                className="col-span-3"
-                placeHolder="peduarte@me.com"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="username" className="text-right">
-                Contraseña
-              </Label>
-              <Input
-                id="username"
-                type="password"
-                className="col-span-3"
-                placeHolder=""
-              />
-            </div>
-            <DialogFooter>
-              <Button
-                type="submit"
-                className="bg-yellow-500 text-black text-xl"
-                onClick={onSubmit}
-              >
-                Ingresar
-              </Button>
-            </DialogFooter>
-          </div>
-          <Button
-            className="bg-cyan-600 text-white text-xl rounded-lg"
-            onClick={googleLogin}
-          >
-            Ingresa Con Google
-          </Button>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+              <div className="grid gap-4 py-4">
+                <FormField
+                  control={form.control}
+                  name="usuario"
+                  render={({ field }) => (
+                    <FormItem
+                      className="grid grid-cols-4 items-center gap-4 mr-4"
+                      id="usuario-form-item"
+                    >
+                      <FormLabel className="text-right">Usuario</FormLabel>
+                      <div className="col-span-3">
+                        <FormControl>
+                          <Input
+                            placeholder="peduarte"
+                            className="w-2/3"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem
+                      className="grid grid-cols-4 items-center gap-4 mr-4"
+                      id="email-form-item"
+                    >
+                      <FormLabel className="text-right">Email</FormLabel>
+                      <div className="col-span-3">
+                        <FormControl>
+                          <Input
+                            placeholder="peduarte@me.com"
+                            type="email"
+                            className="w-2/3"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem
+                      className="grid grid-cols-4 items-center gap-4 mr-4"
+                      id="password-form-item"
+                    >
+                      <FormLabel className="text-right">Contraseña</FormLabel>
+                      <div className="col-span-3">
+                        <FormControl>
+                          <Input
+                            type="password"
+                            className="w-2/3"
+                            placeholder="Hello@123"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormDescription className="text-xs">
+                          Debe incluir mayúsculas, minúsculas, números y
+                          caracteres especiales (@$!%*?&)
+                        </FormDescription>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <div className="flex items-center flex-col gap-4">
+                <Button
+                  type="submit"
+                  className="bg-yellow-500 text-black text-xl w-2/3"
+                >
+                  Ingresar
+                </Button>
+                <Button
+                  className="bg-white text-cyan-500 text-xl w-2/3 "
+                  onClick={googleLogin}
+                >
+                  Entra con Google
+                </Button>
+                <p>ó</p>
+                <Button
+                  onClick={OnRegister}
+                  className="bg-cyan-500 text-black text-xl w-2/3 "
+                >
+                 
+                  Registrate
+                 
+                </Button>
+              </div>
+            </form>
+          </Form>
+          
           <p className="text-xs">
             Al utilizar SVG - Natacion, acepta la recopilación de datos de uso
             para análisis
