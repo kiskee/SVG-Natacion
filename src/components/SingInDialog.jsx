@@ -30,10 +30,6 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const formSchema = z.object({
-  usuario: z
-    .string()
-    .min(3, { message: "El usuario debe tener al menos 3 caracteres" })
-    .max(20, { message: "El usuario no puede tener más de 20 caracteres" }),
   email: z
     .string()
     .min(1, { message: "El email es requerido" })
@@ -63,7 +59,6 @@ export default function SingInDialog({ openDialog, closeDialog }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      usuario: "",
       email: "",
       password: "",
     },
@@ -80,9 +75,9 @@ export default function SingInDialog({ openDialog, closeDialog }) {
         );
 
         const user = userInfo.data;
-        console.log("aca el usuario", user);
+
         // Enviar el login y obtener el JWT
-        const login = await apiService.post("/auth/login", user);
+        const login = await apiService.post("/auth/login-google", user);
 
         // Guardar en el estado y localStorage
         setUserDetail({
@@ -101,12 +96,13 @@ export default function SingInDialog({ openDialog, closeDialog }) {
     try {
       const user = values;
       console.log(user);
-      // const login = await apiService.post("/auth/login", user);
-      // setUserDetail({
-      //   ...user,
-      //   token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
-      // });
-      // closeDialog(false);
+      const login = await apiService.post("/auth/login", user);
+      console.log("aca el lgin", login);
+      setUserDetail({
+        ...user,
+        token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
+      });
+      closeDialog(false);
     } catch (error) {
       console.error("Error during login", error);
     }
@@ -115,7 +111,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
   const OnRegister = () => {
     closeDialog(false);
     navigate("/register", { replace: true });
-  }
+  };
   // body
   return (
     <>
@@ -145,29 +141,6 @@ export default function SingInDialog({ openDialog, closeDialog }) {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
               <div className="grid gap-4 py-4">
-                <FormField
-                  control={form.control}
-                  name="usuario"
-                  render={({ field }) => (
-                    <FormItem
-                      className="grid grid-cols-4 items-center gap-4 mr-4"
-                      id="usuario-form-item"
-                    >
-                      <FormLabel className="text-right">Usuario</FormLabel>
-                      <div className="col-span-3">
-                        <FormControl>
-                          <Input
-                            placeholder="peduarte"
-                            className="w-2/3"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </div>
-                    </FormItem>
-                  )}
-                />
-
                 <FormField
                   control={form.control}
                   name="email"
@@ -233,19 +206,17 @@ export default function SingInDialog({ openDialog, closeDialog }) {
                 >
                   Entra con Google
                 </Button>
-                <p>ó</p>
+
                 <Button
                   onClick={OnRegister}
                   className="bg-cyan-500 text-black text-xl w-2/3 "
                 >
-                 
                   Registrate
-                 
                 </Button>
               </div>
             </form>
           </Form>
-          
+
           <p className="text-xs">
             Al utilizar SVG - Natacion, acepta la recopilación de datos de uso
             para análisis
