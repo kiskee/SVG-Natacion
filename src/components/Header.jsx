@@ -61,6 +61,12 @@ export default function Header() {
           >
             <Link to="/"> SVG - Natacion</Link>
           </h1>
+          <Button
+                className="bg-yellow-500 text-black hover:bg-cyan-400 transition-colors ml-4 mt-4 ss:mr-4"
+                //onClick={() => setOpenSingUpDialog(true)}
+              >
+                <Link to="/"> Inicio</Link>
+              </Button>
         </div>
 
         {/* Navigation */}
