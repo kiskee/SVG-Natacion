@@ -25,6 +25,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import SingInDialog from "./SingInDialog";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { apiService } from "../services/apiService";
+import { useGoogleLogin } from "@react-oauth/google";
 
 const formSchema = z.object({
   email: z
@@ -63,6 +67,7 @@ const formSchema = z.object({
 export default function SingUpDialog() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const [openSingINDialog, setOpenSingINDialog] = useState(false);
+  const navigate = useNavigate();
   // 1. Define your form.
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -75,14 +80,67 @@ export default function SingUpDialog() {
     },
   });
 
-  function onSubmit(values) {
-    console.log(values);
+  const googleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      try {
+        const userInfo = await axios.get(
+          import.meta.env.VITE_GOOGLE_SINGIN_URL,
+          {
+            headers: { Authorization: "Bearer " + tokenResponse?.access_token },
+          }
+        );
+
+        const user = userInfo.data;
+
+        const register = await apiService.post("/users", user);
+        if (!register._id) {
+          throw new Error("error durin register");
+        }
+        // Enviar el login y obtener el JWT
+        const login = await apiService.post("/auth/login-google", user);
+
+        // Guardar en el estado y localStorage
+        setUserDetail({
+          ...user,
+          token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
+        });
+        navigate("/", { replace: true });
+      } catch (error) {
+        console.error("Error during login", error);
+      }
+    },
+    onError: (errorResponse) => console.log(errorResponse),
+  });
+
+  async function onSubmit(values) {
+    try {
+      const user = {
+        email: values.email,
+        family_name: values.apellidos,
+        given_name: values.nombre,
+        name: values.usuario,
+        password: values.password,
+      };
+      const register = await apiService.post("/users", user);
+      if (!register._id) {
+        throw new Error("error durin register");
+      }
+      const loginParams = { email: values.email, password: values.password };
+      const login = await apiService.post("/auth/login", loginParams);
+      setUserDetail({
+        ...user,
+        token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
+      });
+      navigate("/", { replace: true });
+    } catch (error) {
+      console.error("Error during register", error);
+    }
   }
 
   // body
   return (
     <>
-      <div className="bg-black text-white flex flex-col items-center justify-center gap-3">
+      <div className="bg-black text-white flex flex-col items-center justify-center gap-3 m-4">
         <div>
           <div className="flex flex-col items-center">
             <p className="font-bold text-3xl text-center text-cyan-500">
@@ -100,7 +158,7 @@ export default function SingUpDialog() {
             crear una nueva
           </div>
         </div>
-        
+
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
             <div className="grid gap-4 py-4">
@@ -108,7 +166,10 @@ export default function SingUpDialog() {
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem  className="grid grid-cols-4 items-center gap-4 mr-4" id="email-form-item">
+                  <FormItem
+                    className="grid grid-cols-4 items-center gap-4 mr-4"
+                    id="email-form-item"
+                  >
                     <FormLabel className="text-right">Email</FormLabel>
                     <div className="col-span-3">
                       <FormControl>
@@ -121,7 +182,7 @@ export default function SingUpDialog() {
                       </FormControl>
                       <FormMessage />
                     </div>
-                  </FormItem >
+                  </FormItem>
                 )}
               />
 
@@ -129,7 +190,10 @@ export default function SingUpDialog() {
                 control={form.control}
                 name="nombre"
                 render={({ field }) => (
-                  <FormItem className="grid grid-cols-4 items-center gap-4 mr-4"  id="nombre-form-item">
+                  <FormItem
+                    className="grid grid-cols-4 items-center gap-4 mr-4"
+                    id="nombre-form-item"
+                  >
                     <FormLabel className="text-right">Nombre</FormLabel>
                     <div className="col-span-3">
                       <FormControl>
@@ -149,7 +213,10 @@ export default function SingUpDialog() {
                 control={form.control}
                 name="apellidos"
                 render={({ field }) => (
-                  <FormItem className="grid grid-cols-4 items-center gap-4 mr-4" id="apellidos-form-item">
+                  <FormItem
+                    className="grid grid-cols-4 items-center gap-4 mr-4"
+                    id="apellidos-form-item"
+                  >
                     <FormLabel className="text-right">Apellidos</FormLabel>
                     <div className="col-span-3">
                       <FormControl>
@@ -169,7 +236,10 @@ export default function SingUpDialog() {
                 control={form.control}
                 name="usuario"
                 render={({ field }) => (
-                  <FormItem className="grid grid-cols-4 items-center gap-4 mr-4" id="usuario-form-item">
+                  <FormItem
+                    className="grid grid-cols-4 items-center gap-4 mr-4"
+                    id="usuario-form-item"
+                  >
                     <FormLabel className="text-right">Usuario</FormLabel>
                     <div className="col-span-3">
                       <FormControl>
@@ -189,7 +259,10 @@ export default function SingUpDialog() {
                 control={form.control}
                 name="password"
                 render={({ field }) => (
-                  <FormItem className="grid grid-cols-4 items-center gap-4 mr-4" id="password-form-item">
+                  <FormItem
+                    className="grid grid-cols-4 items-center gap-4 mr-4"
+                    id="password-form-item"
+                  >
                     <FormLabel className="text-right">Contraseña</FormLabel>
                     <div className="col-span-3">
                       <FormControl>
@@ -213,33 +286,34 @@ export default function SingUpDialog() {
             <div className="flex items-center flex-col gap-4">
               <Button
                 type="submit"
-                className="bg-red-500 text-black text-xl w-2/3"
+                className="bg-cyan-500 text-black text-xl w-2/3"
               >
                 Registrate
-              </Button>
-              <Button
-                className="bg-cyan-600 text-white text-xl w-2/3 "
-                // onClick={googleLogin}
-              >
-                Registrate Con Google
-              </Button>
-              <p>ó</p>
-              <Button onClick={() => setOpenSingINDialog(true)}
-                className="bg-yellow-500 text-black text-xl w-2/3 ">
-                  Inicia Session
               </Button>
             </div>
           </form>
         </Form>
+        <Button
+          className="bg-white text-black text-xl w-2/3 "
+          onClick={googleLogin}
+        >
+          Registrate Con Google
+        </Button>
 
+        <Button
+          onClick={() => setOpenSingINDialog(true)}
+          className="bg-yellow-500 text-black text-xl w-2/3 "
+        >
+          Inicia Session
+        </Button>
         <p className="text-xs">
           Al utilizar SVG - Natacion, acepta la recopilación de datos de uso
           para análisis
         </p>
         <SingInDialog
-                openDialog={openSingINDialog}
-                closeDialog={(v) => setOpenSingINDialog(v)}
-              />
+          openDialog={openSingINDialog}
+          closeDialog={(v) => setOpenSingINDialog(v)}
+        />
       </div>
     </>
   );

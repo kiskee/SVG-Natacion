@@ -28,6 +28,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useNavigate } from "react-router-dom";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const formSchema = z.object({
   email: z
@@ -95,9 +96,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
   async function onSubmit(values) {
     try {
       const user = values;
-      console.log(user);
       const login = await apiService.post("/auth/login", user);
-      console.log("aca el lgin", login);
       setUserDetail({
         ...user,
         token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
@@ -200,23 +199,22 @@ export default function SingInDialog({ openDialog, closeDialog }) {
                 >
                   Ingresar
                 </Button>
-                <Button
-                  className="bg-white text-cyan-500 text-xl w-2/3 "
-                  onClick={googleLogin}
-                >
-                  Entra con Google
-                </Button>
-
-                <Button
-                  onClick={OnRegister}
-                  className="bg-cyan-500 text-black text-xl w-2/3 "
-                >
-                  Registrate
-                </Button>
               </div>
             </form>
           </Form>
+          <Button
+            className="bg-white text-black text-xl w-2/3 "
+            onClick={googleLogin}
+          >
+            Entra con Google
+          </Button>
 
+          <Button
+            onClick={OnRegister}
+            className="bg-cyan-500 text-black text-xl w-2/3 "
+          >
+            Registrate
+          </Button>
           <p className="text-xs">
             Al utilizar SVG - Natacion, acepta la recopilación de datos de uso
             para análisis

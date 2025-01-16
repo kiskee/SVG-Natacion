@@ -40,7 +40,6 @@ export const apiService = {
 
   post: async (url, body, headers = {}) => {
     try {
-      console.log("aca tiod eadkamndam ", `${BASE_URL}${url}`,body, headers )
       const response = await fetch(`${BASE_URL}${url}`, {
         method: "POST",
         headers: {
