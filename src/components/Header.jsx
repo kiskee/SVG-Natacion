@@ -90,11 +90,11 @@ export default function Header() {
               <DropdownMenuContent className="w-24 bg-black flex items-center flex-col">
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem className="bg-white m-2 hover:bg-lime-500">
-                    <Link to="/">Home</Link>
+                  <DropdownMenuItem className="bg-white m-2 hover:bg-cyan-500">
+                    <Link to="/">Inico</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="bg-white m-2 hover:bg-lime-500">
-                    <Link to="/page1">Full List</Link>
+                  <DropdownMenuItem className="bg-white m-2 hover:bg-cyan-500">
+                    <Link to="/my-courses">Mis Cursos</Link>
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>

@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Layaut from "./components/Layaut";
 import Info from './pages/Info'
 import Register from './pages/Register'
+import ProtectedRoute from "./components/ProtectedRoute";
+import MyCourses from "./pages/MyCourses";
 
 
 export default function App() {
@@ -18,6 +20,8 @@ export default function App() {
             <Route path="/info" element={<Info />} />
             {/* Define the route for the "Proyectos" page */}
             <Route path="/register" element={<Register />} />
+
+            <Route path="/my-courses" element={<ProtectedRoute element={<MyCourses/>} />} />
           </Routes>
         </Layaut>
      
