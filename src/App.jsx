@@ -6,6 +6,7 @@ import Info from './pages/Info'
 import Register from './pages/Register'
 import ProtectedRoute from "./components/ProtectedRoute";
 import MyCourses from "./pages/MyCourses";
+import Courses from "./pages/Courses";
 
 
 export default function App() {
@@ -20,6 +21,8 @@ export default function App() {
             <Route path="/info" element={<Info />} />
             {/* Define the route for the "Proyectos" page */}
             <Route path="/register" element={<Register />} />
+
+            <Route path="/courses" element={<Courses />} />
 
             <Route path="/my-courses" element={<ProtectedRoute element={<MyCourses/>} />} />
           </Routes>
