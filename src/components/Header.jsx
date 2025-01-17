@@ -61,12 +61,14 @@ export default function Header() {
           >
             <Link to="/"> SVG - Natacion</Link>
           </h1>
+          <Link to="/">
           <Button
                 className="bg-yellow-500 text-black hover:bg-cyan-400 transition-colors ml-4 mt-4 ss:mr-4"
                 //onClick={() => setOpenSingUpDialog(true)}
               >
-                <Link to="/"> Inicio</Link>
+                 Inicio
               </Button>
+              </Link>
         </div>
 
         {/* Navigation */}
@@ -96,19 +98,18 @@ export default function Header() {
               <DropdownMenuContent className="w-24 bg-black flex items-center flex-col">
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem className="bg-white m-2 hover:bg-cyan-500">
-                    <Link to="/">Inico</Link>
+                <Link to="/my-courses">
+                  <DropdownMenuItem className="text-white m-2 hover:bg-cyan-500">
+                    Mis Cursos
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="bg-white m-2 hover:bg-cyan-500">
-                    <Link to="/my-courses">Mis Cursos</Link>
-                  </DropdownMenuItem>
+                  </Link>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Avatar className="m-4">
+                <Avatar className="m-4 mt-5 ss:mt-6">
                   <AvatarImage src={userDetail.picture} />
                   <AvatarFallback>{userDetail.given_name}</AvatarFallback>
                 </Avatar>
