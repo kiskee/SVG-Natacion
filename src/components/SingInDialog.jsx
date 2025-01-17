@@ -82,7 +82,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
 
         // Guardar en el estado y localStorage
         setUserDetail({
-          ...user,
+          ...login.user,
           token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
         });
         closeDialog(false);
@@ -98,7 +98,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
       const user = values;
       const login = await apiService.post("/auth/login", user);
       setUserDetail({
-        ...user,
+        ...login.user,
         token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
       });
       closeDialog(false);

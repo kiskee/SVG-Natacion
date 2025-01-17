@@ -1,7 +1,15 @@
 import Sidebar from "@/components/AppSidebar";
+import ModuleService from '@/services/moduleService'
 
 export default function MyCourses() {
   // body
+  ModuleService.userProgress.getAll()
+  .then((progresses) => {
+    console.log('UserProgress:', progresses);
+  })
+  .catch((error) => {
+    console.error('Error al obtener UserProgress:', error);
+  });
   return (
     <div className="flex">
       <Sidebar />
