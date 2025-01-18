@@ -95,6 +95,10 @@ const ModuleService = {
       await apiClient.delete(`/lessons/${id}`);
       return { success: true };
     },
+    find: async (data) => {
+      const response = await apiClient.post('/lessons/find/value', data);
+      return response.data;
+    },
   },
 
   // Quizzes
