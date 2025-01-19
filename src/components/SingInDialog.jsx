@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserDetailContext } from "@/context/UserDetailContext";
 import {
   Dialog,
@@ -6,11 +6,9 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import logo from "../assets/final.png";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
@@ -28,7 +26,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useNavigate } from "react-router-dom";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { Eye, EyeOff } from "lucide-react";
 
 const formSchema = z.object({
   email: z
@@ -56,6 +54,8 @@ const formSchema = z.object({
 
 export default function SingInDialog({ openDialog, closeDialog }) {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -87,7 +87,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
         });
         closeDialog(false);
       } catch (error) {
-        console.error("Error during login", error);
+        setError(error.message);
       }
     },
     onError: (errorResponse) => console.log(errorResponse),
@@ -103,7 +103,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
       });
       closeDialog(false);
     } catch (error) {
-      console.error("Error during login", error);
+      setError(error.message);
     }
   }
 
@@ -111,6 +111,11 @@ export default function SingInDialog({ openDialog, closeDialog }) {
     closeDialog(false);
     navigate("/register", { replace: true });
   };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   // body
   return (
     <>
@@ -132,10 +137,16 @@ export default function SingInDialog({ openDialog, closeDialog }) {
                 className="relative z-10 mt-2"
               />
             </DialogTitle>
-            <DialogDescription className="mt-2 text-center text-xl text-white">
-              Para usar SVG - Natacion deberas ingresar en una cuenta existente
-              o crear una nueva
-            </DialogDescription>
+            {error ? (
+              <h1 className="text-red-500 text-xl font-bold mt-8 text-center">
+                {error}
+              </h1>
+            ) : (
+              <DialogDescription className="mt-2 text-center text-xl text-white">
+                Para usar SVG - Natacion deberas ingresar en una cuenta
+                existente o crear una nueva
+              </DialogDescription>
+            )}
           </DialogHeader>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
@@ -174,15 +185,33 @@ export default function SingInDialog({ openDialog, closeDialog }) {
                     >
                       <FormLabel className="text-right">Contraseña</FormLabel>
                       <div className="col-span-3">
-                        <FormControl>
-                          <Input
-                            type="password"
-                            className="w-2/3"
-                            placeholder="Hello@123"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormDescription className="text-xs">
+                        <div className="flex-row flex">
+                          <FormControl>
+                            <Input
+                              type={showPassword ? "text" : "password"}
+                              className="w-2/3"
+                              placeholder="Hello@123"
+                              {...field}
+                            />
+                          </FormControl>
+                          <button
+                            type="button"
+                            onClick={togglePasswordVisibility}
+                            className="ml-4"
+                            aria-label={
+                              showPassword
+                                ? "Ocultar contraseña"
+                                : "Mostrar contraseña"
+                            }
+                          >
+                            {showPassword ? (
+                              <EyeOff className="w-5 h-5 text-gray-500" />
+                            ) : (
+                              <Eye className="w-5 h-5 text-gray-500" />
+                            )}
+                          </button>
+                        </div>
+                        <FormDescription className="text-xs mt-2">
                           Debe incluir mayúsculas, minúsculas, números y
                           caracteres especiales (@$!%*?&)
                         </FormDescription>
@@ -191,6 +220,50 @@ export default function SingInDialog({ openDialog, closeDialog }) {
                     </FormItem>
                   )}
                 />
+
+                {/* <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem
+                      className="grid grid-cols-4 items-center gap-4 mr-4"
+                      id="password-form-item"
+                    >
+                      <FormLabel className="text-right">Contraseña</FormLabel>
+                      <div className="col-span-3 flex items-center">
+                        <FormControl>
+                          <Input
+                            type={showPassword ? "text" : "password"}
+                            className="w-2/3"
+                            placeholder="Hello@123"
+                            {...field}
+                          />
+                        </FormControl>
+                        <button
+                          type="button"
+                          onClick={togglePasswordVisibility}
+                          className="ml-2"
+                          aria-label={
+                            showPassword
+                              ? "Ocultar contraseña"
+                              : "Mostrar contraseña"
+                          }
+                        >
+                          {showPassword ? (
+                            <EyeOff className="w-5 h-5 text-gray-500" />
+                          ) : (
+                            <Eye className="w-5 h-5 text-gray-500" />
+                          )}
+                        </button>
+                        <FormDescription className="text-xs mt-2">
+                          Debe incluir mayúsculas, minúsculas, números y
+                          caracteres especiales (@$!%*?&)
+                        </FormDescription>
+                        <FormMessage />
+                      </div>
+                    </FormItem>
+                  )}
+                /> */}
               </div>
               <div className="flex items-center flex-col gap-4">
                 <Button
