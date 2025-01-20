@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ModuleService from "@/services/moduleService";
 import { UserDetailContext } from "@/context/UserDetailContext";
-import { Progress } from "@/components/ui/progress";
 import CourseProgressCard from "@/components/CourseProgressCard ";
 
 export default function UserProfile() {
@@ -20,33 +19,29 @@ export default function UserProfile() {
     family_name: "",
   });
 
-    const handleImageUpload = async (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-      setUploading(true);
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", "swim-blog"); // You'll need to replace this
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_PRESET);
 
-      try {
-        const response = await fetch(
-          `https://api.cloudinary.com/v1_1/dumwnwsfh/image/upload`, // Replace YOUR_CLOUD_NAME
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-        const data = await response.json();
-        console.log(response, data)
-        setImageUpload(data.url);
-        setImageUrl(data.url)
-      } catch (error) {
-        console.error("Error uploading image:", error);
-      } finally {
-        setUploading(false);
-      }
-    };
+    try {
+      const response = await fetch(import.meta.env.VITE_CLOUDINARY_URL, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      setImageUpload(data.url);
+      setImageUrl(data.url);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    } finally {
+      setUploading(false);
+    }
+  };
 
   useEffect(() => {
     if (userDetail.id) {
@@ -78,20 +73,12 @@ export default function UserProfile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí implementarías la lógica para guardar los cambios
-    console.log("Datos a guardar:", formData);
-    if (imageUpload){
-        formData.picture = imageUpload
+    if (imageUpload) {
+      formData.picture = imageUpload;
     }
-    await ModuleService.users.update(userDetail.id, formData)
+    await ModuleService.users.update(userDetail.id, formData);
   };
 
-  const calculateProgress = (userProgress) => {
-    if (!userProgress) return 0;
-    return (
-      (userProgress.completedLessons.length / userProgress.totalLessons) * 100
-    );
-  };
   // body
   return (
     <>
@@ -179,7 +166,7 @@ export default function UserProfile() {
                 </div>
 
                 {userData?.userProgress && (
-                 <CourseProgressCard userProgress={userData.userProgress} />
+                  <CourseProgressCard userProgress={userData.userProgress} />
                 )}
 
                 <Button
