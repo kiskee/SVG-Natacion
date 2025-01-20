@@ -21,7 +21,6 @@ export default function Header() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const navigate = useNavigate();
 
-  
   const onSubmit = () => {
     if (!userDetail?.name) {
       setOpenDialog(true);
@@ -61,14 +60,16 @@ export default function Header() {
           >
             <Link to="/"> SVG - Natacion</Link>
           </h1>
-          <Link to="/">
-          <Button
+          {!userDetail && (
+            <Link to="/">
+              <Button
                 className="bg-yellow-500 text-black hover:bg-cyan-400 transition-colors ml-4 mt-4 ss:mr-4"
                 //onClick={() => setOpenSingUpDialog(true)}
               >
-                 Inicio
+                Inicio
               </Button>
-              </Link>
+            </Link>
+          )}
         </div>
 
         {/* Navigation */}
@@ -91,7 +92,7 @@ export default function Header() {
           </nav>
         ) : (
           <div className="flex flex-row">
-            <DropdownMenu>
+            {/* <DropdownMenu>
               <DropdownMenuTrigger asChild className="m-6">
                 <Button className="bg-cyan-600 text-white">Menu</Button>
               </DropdownMenuTrigger>
@@ -105,7 +106,7 @@ export default function Header() {
                   </Link>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> */}
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -118,8 +119,21 @@ export default function Header() {
                 <DropdownMenuLabel>{userDetail.name}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Billing</DropdownMenuItem>
+                  <Link to="/">
+                    <DropdownMenuItem className="text-black">
+                      Inicio
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link to="/my-courses">
+                    <DropdownMenuItem className="text-black">
+                      Mis Cursos
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link to="/profile">
+                    <DropdownMenuItem className="text-black">
+                      Perfil
+                    </DropdownMenuItem>
+                  </Link>
                   <DropdownMenuItem>Settings</DropdownMenuItem>
                   <DropdownMenuItem>Keyboard shortcuts</DropdownMenuItem>
                 </DropdownMenuGroup>

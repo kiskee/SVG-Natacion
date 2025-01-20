@@ -23,6 +23,8 @@ apiClient.interceptors.request.use(
   }
 );
 
+
+
 // Servicio combinado
 const ModuleService = {
   // UserProgress
@@ -46,6 +48,33 @@ const ModuleService = {
     remove: async (id) => {
       await apiClient.delete(`/user-progress/${id}`);
       return { success: true };
+    },
+  },
+
+  users: {
+    create: async (data) => {
+      const response = await apiClient.post('/users', data);
+      return response.data;
+    },
+    getAll: async () => {
+      const response = await apiClient.get('/users');
+      return response.data;
+    },
+    getById: async (id) => {
+      const response = await apiClient.get(`/users/${id}`);
+      return response.data;
+    },
+    update: async (id, data) => {
+      const response = await apiClient.patch(`/users/${id}`, data);
+      return response.data;
+    },
+    remove: async (id) => {
+      await apiClient.delete(`/users/${id}`);
+      return { success: true };
+    },
+    search: async (id) => {
+      const response = await apiClient.get(`/users/search/${id}`);
+      return response.data;
     },
   },
 

@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MyCourses from "./pages/MyCourses";
 import Courses from "./pages/Courses";
+import UserProfile from "./pages/UserProfile";
 
 export default function App() {
   return (
@@ -28,6 +29,10 @@ export default function App() {
           <Route
             path="/my-courses"
             element={<ProtectedRoute element={<MyCourses />} />}
+          />
+          <Route
+            path="/profile"
+            element={<ProtectedRoute element={<UserProfile />} />}
           />
         </Routes>
       </Layaut>
