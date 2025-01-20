@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuración base de Axios
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000', // Cambia según tu backend
+  baseURL: import.meta.env.VITE_API_URL, // Cambia según tu backend
 });
 
 // Interceptor para agregar el token al header de cada solicitud
