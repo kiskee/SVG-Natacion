@@ -8,15 +8,16 @@ import {
   BookOpen,
   User,
   Settings,
-  Pyramid ,
-  Menu ,
+  Pyramid,
+  Menu,
 } from "lucide-react";
 import logo from "../assets/final.png";
 import ModuleService from "@/services/moduleService";
 import { UserDetailContext } from "@/context/UserDetailContext";
+import moduleOnex from "../static/moduleOne.json";
 
 const Sidebar = ({ setActiveComponent }) => {
-   const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const [isOpen, setIsOpen] = useState(true);
   const [moduleData, setModuleData] = useState(null);
   const [moduleOne, setModuleOne] = useState(false);
@@ -31,19 +32,6 @@ const Sidebar = ({ setActiveComponent }) => {
       icon: <Settings size={20} />,
     },
   ];
-
-  useEffect(() => {
-    // Obtener datos del módulo
-    ModuleService.modules
-      .getById("678aaa7ef28e21b40c841554")
-      .then((module) => {
-        console.log("Módulo obtenido:", module);
-        setModuleData(module);
-      })
-      .catch((error) => {
-        console.error("Error al obtener módulo:", error);
-      });
-  }, []);
 
   return (
     <div className="relative">
@@ -104,20 +92,20 @@ const Sidebar = ({ setActiveComponent }) => {
           )) } */}
 
             {/* Dynamic Lessons Section */}
-            {moduleData?.lessons && moduleOne ? (
+            {moduleOnex?.lessons && moduleOne ? (
               <>
                 <li
                   className="flex items-center text-yellow-400  text-xl gap-x-4 p-2 hover:bg-gray-800 rounded-md cursor-pointer"
                   onClick={() => setModuleOne(!moduleOne)}
                 >
-                  <Menu   color="cyan"/>
+                  <Menu color="cyan" />
                   <span
-                        className={`${
-                          !isOpen && "hidden"
-                        } origin-left duration-200`}
-                      >
-                       Menu
-                      </span>
+                    className={`${
+                      !isOpen && "hidden"
+                    } origin-left duration-200`}
+                  >
+                    Menu
+                  </span>
                 </li>
                 <h2
                   className={`text-sm font-semibold text-gray-400 mt-6 ${
@@ -127,7 +115,7 @@ const Sidebar = ({ setActiveComponent }) => {
                   Lecciones
                 </h2>
 
-                {moduleData.lessons.map((lesson, index) => (
+                {moduleOnex.lessons.map((lesson, index) => (
                   <li
                     key={index}
                     className="flex items-center gap-x-4 p-2 hover:bg-gray-800 rounded-md cursor-pointer"
@@ -159,19 +147,21 @@ const Sidebar = ({ setActiveComponent }) => {
                     </li>
                   </Link>
                 ))}
-                {userDetail.role == "admin" && <li
-                  className="flex items-center text-yellow-400  text-xl gap-x-4 p-2 hover:bg-gray-800 rounded-md cursor-pointer"
-                  onClick={() => setModuleOne(!moduleOne)}
-                >
-                  <Pyramid  color="cyan"/>
-                  <span
-                        className={`${
-                          !isOpen && "hidden"
-                        } origin-left duration-200`}
-                      >
-                       Modulo 1
-                      </span>
-                </li>}
+                {userDetail.role == "admin" && (
+                  <li
+                    className="flex items-center text-yellow-400  text-xl gap-x-4 p-2 hover:bg-gray-800 rounded-md cursor-pointer"
+                    onClick={() => setModuleOne(!moduleOne)}
+                  >
+                    <Pyramid color="cyan" />
+                    <span
+                      className={`${
+                        !isOpen && "hidden"
+                      } origin-left duration-200`}
+                    >
+                      Modulo 1
+                    </span>
+                  </li>
+                )}
               </>
             )}
           </ul>

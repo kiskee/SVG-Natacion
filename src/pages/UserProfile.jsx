@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import ModuleService from "@/services/moduleService";
 import { UserDetailContext } from "@/context/UserDetailContext";
 import CourseProgressCard from "@/components/CourseProgressCard ";
+import {Cloudinary} from "@cloudinary/url-gen";
+import {AdvancedImage} from '@cloudinary/react';
 
 export default function UserProfile() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
@@ -18,7 +20,12 @@ export default function UserProfile() {
     given_name: "",
     family_name: "",
   });
-
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName:  import.meta.env.VITE_CLOUDINARY_CLOUD
+    }
+  });
+  const myImage = cld.image('Default5_kydm6i');
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -163,6 +170,7 @@ export default function UserProfile() {
                       className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none"
                     />
                   </div>
+                  <AdvancedImage cldImg={myImage} />
                 </div>
 
                 {userData?.userProgress && (
