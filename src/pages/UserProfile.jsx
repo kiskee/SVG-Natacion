@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import ModuleService from "@/services/moduleService";
 import { UserDetailContext } from "@/context/UserDetailContext";
 import CourseProgressCard from "@/components/CourseProgressCard ";
-import { put } from '@vercel/blob';
+import { imageDB } from "../../firebaseConfig";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function UserProfile() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
@@ -20,31 +21,16 @@ export default function UserProfile() {
     family_name: "",
   });
 
-  // const cld = new Cloudinary({
-  //   cloud: {
-  //     cloudName:  import.meta.env.VITE_CLOUDINARY_CLOUD
-  //   }
-  // });
-  // const myImage = cld.image('Default5_kydm6i');
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
     setUploading(true);
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_PRESET);
-
     try {
-      const blob = await put(file.name, file, { access: 'public' });
-      console.log(blob)
-      // const response = await fetch(import.meta.env.VITE_CLOUDINARY_URL, {
-      //   method: "POST",
-      //   body: formData,
-      // });
-      // const data = await response.json();
-      // setImageUpload(data.url);
-      // setImageUrl(data.url);
+      const imgRef = ref(imageDB, `avatars/${file.name}`);
+      await uploadBytes(imgRef, file);
+      const url = await getDownloadURL(imgRef);
+      setImageUpload(url);
+      setImageUrl(url);
     } catch (error) {
       console.error("Error uploading image:", error);
     } finally {
@@ -172,7 +158,6 @@ export default function UserProfile() {
                       className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none"
                     />
                   </div>
-                 
                 </div>
 
                 {userData?.userProgress && (

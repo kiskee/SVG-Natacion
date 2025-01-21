@@ -40,25 +40,25 @@ export const UserDetailProvider = ({ children }) => {
     }
   }, [userDetail]);
 
-  useEffect(() => {
-    // Verifica cada minuto si el token sigue siendo válido
-    const interval = setInterval(() => {
-      const storedToken = localStorage.getItem("authToken");
-      if (storedToken) {
-        const { expiresAt } = JSON.parse(storedToken);
-        const now = new Date().getTime();
+  // useEffect(() => {
+  //   // Verifica cada minuto si el token sigue siendo válido
+  //   const interval = setInterval(() => {
+  //     const storedToken = localStorage.getItem("authToken");
+  //     if (storedToken) {
+  //       const { expiresAt } = JSON.parse(storedToken);
+  //       const now = new Date().getTime();
 
-        if (now >= expiresAt) {
-          // Token expirado
-          setUserDetail(null);
-          localStorage.removeItem("userDetail");
-          localStorage.removeItem("authToken");
-        }
-      }
-    }, 60 * 1000); // Cada minuto
+  //       if (now >= expiresAt) {
+  //         // Token expirado
+  //         setUserDetail(null);
+  //         localStorage.removeItem("userDetail");
+  //         localStorage.removeItem("authToken");
+  //       }
+  //     }
+  //   }, 60 * 1000); // Cada minuto
 
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar
-  }, []);
+  //   return () => clearInterval(interval); // Limpia el intervalo al desmontar
+  // }, []);
 
   return (
     <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
