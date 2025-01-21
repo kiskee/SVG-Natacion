@@ -7,9 +7,21 @@ import { UserDetailContext } from "@/context/UserDetailContext";
 import CourseProgressCard from "@/components/CourseProgressCard ";
 import { imageDB } from "../../firebaseConfig";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { useToast } from "../hooks/use-toast";
 
 export default function UserProfile() {
-  const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const { userDetail, updateUserDetail } = useContext(UserDetailContext);
   const [userData, setUserData] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
   const [imageUpload, setImageUpload] = useState(null);
@@ -20,6 +32,10 @@ export default function UserProfile() {
     given_name: "",
     family_name: "",
   });
+  const { toast } = useToast();
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const handleDialogClose = () => setDialogOpen(false);
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -71,6 +87,11 @@ export default function UserProfile() {
     if (imageUpload) {
       formData.picture = imageUpload;
     }
+    toast({
+      description: "Cambios Guardados con exito!",
+    });
+
+    updateUserDetail(formData);
     await ModuleService.users.update(userDetail.id, formData);
   };
 
@@ -163,13 +184,40 @@ export default function UserProfile() {
                 {userData?.userProgress && (
                   <CourseProgressCard userProgress={userData.userProgress} />
                 )}
-
-                <Button
-                  type="submit"
-                  className="w-full bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded transition-colors"
-                >
-                  Guardar Cambios
-                </Button>
+                <AlertDialog open={isDialogOpen} onOpenChange={setDialogOpen}>
+                  <AlertDialogTrigger asChild>
+                    <Button
+                      onClick={() => setDialogOpen(true)}
+                      className="w-full bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded transition-colors"
+                    >
+                      Guardar Cambios
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent className="bg-black text-white">
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>¿Estás segur@?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Esto guardará los cambios en nuestra base de datos.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel onClick={handleDialogClose}>
+                        Cancelar
+                      </AlertDialogCancel>
+                      <AlertDialogAction
+                        type="submit"
+                        className="w-full bg-cyan-400 hover:bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded transition-colors"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleSubmit(e); // Ejecutar la función de guardar cambios.
+                          handleDialogClose(); // Cerrar el diálogo.
+                        }}
+                      >
+                        Guardar Cambios
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
               </div>
             </form>
           </CardContent>

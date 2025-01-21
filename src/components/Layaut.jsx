@@ -2,6 +2,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { UserDetailProvider } from "@/context/UserDetailContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function Layaut({ children }) {
   // body
@@ -14,8 +15,10 @@ export default function Layaut({ children }) {
 
           {/* Dynamic content passed as children */}
           <div className="">{children}</div>
+         
           {/* Pie de página */}
           <Footer />
+          <Toaster/>
         </div>
       </UserDetailProvider>
     </GoogleOAuthProvider>
