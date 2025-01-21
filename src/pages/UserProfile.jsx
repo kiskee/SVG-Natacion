@@ -5,8 +5,7 @@ import { Button } from "@/components/ui/button";
 import ModuleService from "@/services/moduleService";
 import { UserDetailContext } from "@/context/UserDetailContext";
 import CourseProgressCard from "@/components/CourseProgressCard ";
-import {Cloudinary} from "@cloudinary/url-gen";
-import {AdvancedImage} from '@cloudinary/react';
+import { put } from '@vercel/blob';
 
 export default function UserProfile() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
@@ -20,29 +19,32 @@ export default function UserProfile() {
     given_name: "",
     family_name: "",
   });
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName:  import.meta.env.VITE_CLOUDINARY_CLOUD
-    }
-  });
-  const myImage = cld.image('Default5_kydm6i');
+
+  // const cld = new Cloudinary({
+  //   cloud: {
+  //     cloudName:  import.meta.env.VITE_CLOUDINARY_CLOUD
+  //   }
+  // });
+  // const myImage = cld.image('Default5_kydm6i');
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
     setUploading(true);
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_PRESET);
+    // const formData = new FormData();
+    // formData.append("file", file);
+    // formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_PRESET);
 
     try {
-      const response = await fetch(import.meta.env.VITE_CLOUDINARY_URL, {
-        method: "POST",
-        body: formData,
-      });
-      const data = await response.json();
-      setImageUpload(data.url);
-      setImageUrl(data.url);
+      const blob = await put(file.name, file, { access: 'public' });
+      console.log(blob)
+      // const response = await fetch(import.meta.env.VITE_CLOUDINARY_URL, {
+      //   method: "POST",
+      //   body: formData,
+      // });
+      // const data = await response.json();
+      // setImageUpload(data.url);
+      // setImageUrl(data.url);
     } catch (error) {
       console.error("Error uploading image:", error);
     } finally {
@@ -170,7 +172,7 @@ export default function UserProfile() {
                       className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none"
                     />
                   </div>
-                  <AdvancedImage cldImg={myImage} />
+                 
                 </div>
 
                 {userData?.userProgress && (

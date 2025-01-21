@@ -1,45 +1,200 @@
 [
   {
-    "moduleId": "678aaa7ef28e21b40c841554",
-    "title": "Introducción",
+    "title": "Introduccion al Modulo 1",
     "content": {
-      "text": "El aprendizaje y práctica de la natación gana cada día más adeptos en la\npoblación en general, habida cuenta que la sociedad comprende cada\nvez mejor la importancia y los valores de saber nadar desde la más\ntemprana infancia. Y es que aprender a nadar en edades tempranas\ntiene, más que todo, un gran valor social, sabiendo que con ello se\ncrean nuevos y perecederos hábitos de higiene, que influyen\nnotablemente en la salud y en la calidad de vida de los niños y jóvenes.\nPor esas y otras muchas razones se extienden cada vez más programas\nde enseñanza de la natación, resultado necesario ofrecer a todos los\ninstructores dedicados al arte de enseñar a nadar, los medios que\ncontribuyan a enriquecer su arsenal de recursos técnicos para hacer\nmás eficiente su labor.\nHoy es universalmente aceptado por todos que el momento ideal para\niniciar el aprendizaje es desde las más tempranas edades, incluso con\npocos meses de vida, en los conocidos programas para bebés.\nSin embargo, si bien cualquier edad es adecuada para aprender a nadar,\ntrátese de bebés, niños, jóvenes, adultos e incluso adultos mayores, el\nprograma que presentamos es universal, dirigido a niños de 6 y 7 años\nde edad, cuyo modelo debe ser utilizado y adecuado en cada lugar de\nacuerdo con las edades en que están iniciando sus programas\nrespectivos, para ser adaptado convenientemente según esas\ncaracterísticas particulares que se dan en cada academia o entidad\npromotora de la natación.",
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "A modo de introducción."
+        },
+        {
+          "type": "paragraph",
+          "text": "La formación de nadadores de alto rendimiento es un proceso extenso que abarca varias etapas a lo largo de la vida del atleta, generalmente más de diez años. Este desarrollo se centra en la enseñanza y el perfeccionamiento continuo de las técnicas de nado, incluyendo ejercicios complementarios que fortalecen y optimizan el rendimiento. Además, un aspecto crucial es la especialización en pruebas y distancias específicas, la cual se determina según el potencial individual de cada nadador. Este camino, aunque con excepciones individuales, sigue un patrón general de desarrollo en etapas concretas de la vida del atleta."
+        },
 
-      "media": []
+        {
+          "type": "paragraph",
+          "text": "La primera infancia, integrada por las edades más adecuadas para elaprendizaje, que transcurre entre 0 y 6 años, incluida la etapa de bebé, es el mejor momento para regresar al medio líquido de donde procede, aprovechando la predisposición natural para la iniciación acuática."
+        },
+
+        {
+          "type": "paragraph",
+          "text": "Es en esa dirección que se orienta este curso de capacitación, compuesto por seis módulos de estudio, en los cuales se abordan las concepciones básicas que permiten llegar a programas adecuados a las realidades de la infancia, la adolescencia y juventud de aquellos que aspiran a destacar en nuestro deporte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sin embargo, también se presentan tesis relacionadas con los valores educativos de la práctica sistemática de la natación y las ventajas que aporta a todos aquellos que tienen la oportunidad de poder llegar a las piscinas para apropiarse de las mismas."
+        }
+      ]
     },
-
     "order": 1
   },
   {
-    "moduleId": "678aaa7ef28e21b40c841554",
-    "title": "Las condiciones para aprender a nadar.",
+    "title": "Conceptos sobre la natación infantil y las edades",
     "content": {
-      "text": "Enseñar a nadar supone la aplicación de una metodología que,\npartiendo de criterios pedagógicos, se realiza progresivamente, de lo\nsimple a lo complejo, comenzando por lo que denominamos “Formación\nBásica”, que consiste en el proceso de adaptación de los niños al agua y\na familiarizarlos con el nuevo medio, creando las condiciones de\nseguridad y disposición necesarias para iniciar seguidamente la\nenseñanza de las técnicas de nado en libre y espalda, pecho y mariposa,\nademás de las correspondientes vueltas y partidas, en la medida que\navance el programa concebido.",
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Conceptos sobre la natación infantil y las edades"
+        },
+        {
+          "type": "paragraph",
+          "text": "Es sumamente importante considerar con particular interés el concepto que sobre la natación infantil estamos desarrollando y debemos arraigar. Se trata de un problema de cultura misma de la natación. Se trata de desterrar definitivamente tendencias equivocadas que suelen ganar terreno con mucha fuerza y que generan una influencia negativa sobre los entrenadores y padres de familia, creando situaciones muy especiales y hasta conflictivas. Se trata de liquidar malos y viejos hábitos que, lamentablemente, existen, subsisten y estarán siempre latentes para manifestarse en la primera oportunidad que se presente."
+        },
 
-      "media": []
+        {
+          "type": "paragraph",
+          "text": "El principal objetivo es que el tratamiento pedagógico desde la natación de menores e infantiles sea en el contexto adecuado, en un escenario independiente, en el ambiente infantil que ellos necesitan, sin alterar los contenidos que corresponden a la preparación en las edades en que se enmarca."
+        },
+        {
+          "type": "paragraph",
+          "text": "El ambiente, el medio en que se desenvuelven los nadadores menores e infantiles, para nada debe ser estresante ni de rigor en función de los rendimientos. El solo hecho de la diferenciación biológica en materia de estadios de desarrollo y crecimiento físico entre unos y otros nadadores, entre uno y otro sexo, es un elemento que debe llamarnos a la reflexión sobre la preparación que cada día hacemos con este tipo de nadador. El error más común es entrenar para precipitar resultados competitivos que solamente crearán falsas expectativas y, en muchos casos, estrellas fugaces, lo que impide dar a los nadadores menores e infantiles el trato que merecen y que necesitan."
+        },
+        {
+          "type": "paragraph",
+          "text": "La natación en las edades menores e infantiles, hasta los 12 años, es absolutamente pedagógica, educativa, formativa, de ninguna manera orientada a altos rendimientos deportivos, como debiera serlo también en otras modalidades deportivas."
+        },
+        {
+          "type": "paragraph",
+          "text": "El diseño concebido y que sugerimos poner en marcha para la natación de menores e infantiles está conscientemente orientado a preservar y proteger de muchos vicios a los nadadores de estas edades, a evitar su prematura especialización en técnicas y distancias supuestas, cuando aún falta mucho tiempo para tomar ese tipo de decisiones, cuando precisamente se deben estar desarrollando nuevas habilidades motoras que se incorporen al arsenal de movimientos que va a necesitar para proceder más tarde a perfeccionarlas. También está orientado a evitar frustraciones tempranas que puedan liquidar las aspiraciones de una 5 personita muy susceptible de sufrir esas consecuencias y escapar a ellas por la puerta del abandono prematuro de la natación competitiva, lo que sucede con mucha frecuencia en todos los clubes, asociaciones y federaciones."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dados los argumentos anteriores, no es casual que estemos poniendo en vigor un programa de capacitación que recoja, precisamente, todo el proceso metodológico y de planificación de enseñanza y entrenamiento para las edades comprendidas en la natación infantil, que se orienta en lo metodológico a que prevalezca una filosofía ajustada a los procesos de crecimiento y desarrollo de los niños, a las distintas etapas por las que transita, preservando su fisiología y su estado de ánimo para empeños mayores en otras edades, las juveniles y mayores, cuando su organismo comienza a madurar y está apto para iniciarse en el alto rendimiento."
+        },
+        {
+          "type": "paragraph",
+          "text": "A nadie se le ocurre que menores de 12 años matriculen una carrera universitaria, cuando a esas edades corresponde cursar la primaria y después iniciar apenas el bachillerato. Es un ejemplo comparativo que tiene gran valor. ¿Por qué? Porque los niños de 12 años y/o menores no están intelectualmente aptos para estudiar en la universidad. Y en el deporte sucede igual, los altos rendimientos dependen de una maduración anatómica, fisiológica e intelectual que no se advierte en las edades de la escuela primaria ni al inicio del bachillerato. Intentar en esas edades rendimientos forzados es, sencillamente, un abuso de quien lo pretenda, incluso tratándose de los mismos padres, que muchas veces enloquecen por lograr resultados prematuros, aún a costa de la salud de sus propios hijos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Por ello los volúmenes de trabajo que aparecerán en módulos posteriores para los menores de 12 años están dirigidos esencialmente al trabajo técnico y aeróbico, que para nada perjudica ni psíquica ni fisiológicamente al joven nadador. Por el contrario, lo educa en la idea, en la tesis que hay implícita, que sin altos volúmenes de trabajo no es posible figurar en la elite, ni siquiera nacional."
+        },
+        {
+          "type": "paragraph",
+          "text": "Por tanto, se requiere de mucho análisis, de muchas valoraciones por parte de los entrenadores, quienes, definitivamente, son los llamados a consolidar un proceso que preserve al nadador, que lo eduque desde temprana edad en todas las respuestas que requieran sus preguntas y los enseñe a trabajar de una manera creativa y prometedora."
+        }
+      ]
     },
-
-    "order": 1
+    "order": 2
   },
   {
-    "moduleId": "678aaa7ef28e21b40c841554",
-    "title": "La seguridad",
+    "title": "Grupos de edades",
     "content": {
-      "text": "Al iniciar el proceso de enseñanza es obligado tomar un grupo de\nmedidas de seguridad en la piscina donde se van a impartir las clases,\nde manera que propicien y favorezcan las condiciones mínimas para\naprovechar el tiempo y con ello la mayor eficiencia posible en los\nresultados. Esas condiciones son:\no Higiene y transparencia del agua de la piscina.\no Profundidad mínima de la piscina de enseñanza, que ofrezca\nconfianza a los niños y a sus padres.\no Medios auxiliares, como flotadores, tablas y otros.\no Indicadores de profundidad alrededor de la piscina.\no Temperatura del agua, mínima de 25o C y máxima de 28o C.\no Apoyo en los vestidores para la disciplina durante los cambios de\nropa.\no Un ambiente relajado, de orden, de la mayor estética posible.\no Evitar que observadores, incluidos familiares inmediatos,\ninterrumpan la concentración de los principiantes, hasta donde ello\nsea posible. (En ninguna de las aulas de los colegios o\nuniversidades los padres pueden entrar a observar cómo se\nimparten las matemáticas u otra materia, mucho menos intervenir\ny hacer recomendaciones al respecto).",
-
-      "media": []
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Los grupos de edades más apropiados para la enseñanza, para la formación de habilidades motoras y para el alto rendimiento deportivo."
+        },
+        {
+          "type": "paragraph",
+          "text": "Para reforzar objetivamente la idea de una política de edades coherente y bien definida, que se ajuste a las características evolutivas del ser humano y nos lleve a hacer en cada edad lo que realmente es conveniente y posible, debemos definir tres grandes etapas en el desarrollo de un nadador y ofrecerle el tratamiento pedagógico que cada momento exige."
+        },
+        {
+          "type": "subtitle",
+          "text": "Primera Etapa:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Es la etapa de la enseñanza de la natación, que se enmarca en las edades donde se aprende a nadar y transcurre generalmente entre los 3 y 7 años de edad, e incluso antes, en los ya conocidos y exitosos programas para bebes. Los programas para bebes se inician entre los 3 y 6 meses de vida y transcurren hasta los 3-4 años de edad, un tiempo suficiente para que el niño se readapte al medio líquido de donde procede antes del parto y para desarrollar suficientes habilidades como para moverse libremente en el agua, sin que la técnica que emplea sea depurada."
+        },
+        {
+          "type": "paragraph",
+          "text": "Esta primera etapa en la cual los niños inician el desarrollo de habilidades motoras, lo dotarán de la capacidad necesaria para trasladarse sobre el agua en determinadas distancias, sin una técnica depurada, pero sin peligro para su vida. Se puede afirmar que concluirá aproximadamente a los 6–7 años de edad, con un dominio definido de las cualidades básicas, pero impreciso de las técnicas de Libre y Espalda. Sin embargo, estará preparado para iniciarse en una etapa superior y más compleja."
+        }
+      ]
     },
-
-    "order": 1
+    "order": 3
   },
   {
-    "moduleId": "678aaa7ef28e21b40c841554",
-    "title": "factor clave.",
+    "title": "Función social y deportiva",
     "content": {
-      "text": "Enseñar a nadar supone la aplicación de una metodología que, partiendo de criterios pedagógicos, se realiza progresivamente, de lo simple a lo complejo, comenzando por lo que denominamos 'Formación Básica', que consiste en el proceso de adaptación de los niños al agua y a familiarizarlos con el nuevo medio, creando las condiciones de seguridad y disposición necesarias para iniciar seguidamente la enseñanza de las técnicas de nado en libre y espalda, pecho y mariposa, además de las correspondientes vueltas y partidas, en la medida que avance el programa concebido.",
-      "media": []
+      "elements": {}
     },
-
-    "order": 1
+    "order": 4
+  },
+  {
+    "title": "Principales fundamentaciones científicas",
+    "content": {
+      "elements": {}
+    },
+    "order": 5
+  },
+  {
+    "title": "Caracterización psicológica de los nadadores",
+    "content": {
+      "elements": {}
+    },
+    "order": 6
+  },
+  {
+    "title": "Consideraciones pedagógicas",
+    "content": {
+      "elements": {}
+    },
+    "order": 7
+  },
+  {
+    "title": "La técnica en la Natación competitiva",
+    "content": {
+      "elements": {}
+    },
+    "order": 8
+  },
+  {
+    "title": "La técnica del Delfín Subacuático",
+    "content": {
+      "elements": {}
+    },
+    "order": 9
+  },
+  {
+    "title": "Experiencias técnicas en la preparación",
+    "content": {
+      "elements": {}
+    },
+    "order": 10
+  },
+  {
+    "title": "Calentamiento y Regeneración",
+    "content": {
+      "elements": {}
+    },
+    "order": 11
+  },
+  {
+    "title": "La formación de valores en los nadadores",
+    "content": {
+      "elements": {}
+    },
+    "order": 12
+  },
+  {
+    "title": "Necesidades del control médico deportivo",
+    "content": {
+      "elements": {}
+    },
+    "order": 13
+  },
+  {
+    "title": "Cronología de las principales tareas en la natación",
+    "content": {
+      "elements": {}
+    },
+    "order": 14
+  },
+  {
+    "title": "Glosario. Conceptos y términos utilizados",
+    "content": {
+      "elements": {}
+    },
+    "order": 15
+  },
+  {
+    "title": "Bibliografía",
+    "content": {
+      "elements": {}
+    },
+    "order": 16
   }
 ]
