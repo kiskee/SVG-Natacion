@@ -1,15 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
 // Configuración base de Axios
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL, // Cambia según tu backend
+  baseURL: import.meta.env.VITE_API_URL,  // Cambia según tu backend
 });
 
 // Interceptor para agregar el token al header de cada solicitud
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('authToken')
-      ? JSON.parse(localStorage.getItem('authToken')).token
+    const token = localStorage.getItem("authToken")
+      ? JSON.parse(localStorage.getItem("authToken")).token
       : null;
 
     if (token) {
@@ -23,18 +23,16 @@ apiClient.interceptors.request.use(
   }
 );
 
-
-
 // Servicio combinado
 const ModuleService = {
   // UserProgress
   userProgress: {
     create: async (data) => {
-      const response = await apiClient.post('/user-progress', data);
+      const response = await apiClient.post("/user-progress", data);
       return response.data;
     },
     getAll: async () => {
-      const response = await apiClient.get('/user-progress');
+      const response = await apiClient.get("/user-progress");
       return response.data;
     },
     getById: async (id) => {
@@ -53,11 +51,11 @@ const ModuleService = {
 
   users: {
     create: async (data) => {
-      const response = await apiClient.post('/users', data);
+      const response = await apiClient.post("/users", data);
       return response.data;
     },
     getAll: async () => {
-      const response = await apiClient.get('/users');
+      const response = await apiClient.get("/users");
       return response.data;
     },
     getById: async (id) => {
@@ -81,11 +79,11 @@ const ModuleService = {
   // Modules
   modules: {
     create: async (data) => {
-      const response = await apiClient.post('/modules', data);
+      const response = await apiClient.post("/modules", data);
       return response.data;
     },
     getAll: async () => {
-      const response = await apiClient.get('/modules');
+      const response = await apiClient.get("/modules");
       return response.data;
     },
     getById: async (id) => {
@@ -105,11 +103,11 @@ const ModuleService = {
   // Lessons
   lessons: {
     create: async (data) => {
-      const response = await apiClient.post('/lessons', data);
+      const response = await apiClient.post("/lessons", data);
       return response.data;
     },
     getAll: async () => {
-      const response = await apiClient.get('/lessons');
+      const response = await apiClient.get("/lessons");
       return response.data;
     },
     getById: async (id) => {
@@ -125,7 +123,7 @@ const ModuleService = {
       return { success: true };
     },
     find: async (data) => {
-      const response = await apiClient.post('/lessons/find/value', data);
+      const response = await apiClient.post("/lessons/find/value", data);
       return response.data;
     },
   },
@@ -133,11 +131,11 @@ const ModuleService = {
   // Quizzes
   quizzes: {
     create: async (data) => {
-      const response = await apiClient.post('/quizzes', data);
+      const response = await apiClient.post("/quizzes", data);
       return response.data;
     },
     getAll: async () => {
-      const response = await apiClient.get('/quizzes');
+      const response = await apiClient.get("/quizzes");
       return response.data;
     },
     getById: async (id) => {
@@ -151,6 +149,22 @@ const ModuleService = {
     remove: async (id) => {
       await apiClient.delete(`/quizzes/${id}`);
       return { success: true };
+    },
+  },
+
+  singnature: {
+    create: async (value, currency) => {
+      const response = await apiClient.get(
+        `auth/signature?value=${value}&currency=${currency}`
+      );
+      return response.data;
+    },
+  },
+
+  trasactions: {
+    find: async (data) => {
+      const response = await apiClient.post("/trasactions/find/value", data);
+      return response.data;
     },
   },
 };

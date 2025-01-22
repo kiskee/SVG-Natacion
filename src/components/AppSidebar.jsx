@@ -1,5 +1,5 @@
 // components/Sidebar/Sidebar.jsx
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   ChevronLeft,
@@ -12,7 +12,6 @@ import {
   Menu,
 } from "lucide-react";
 import logo from "../assets/final.png";
-import ModuleService from "@/services/moduleService";
 import { UserDetailContext } from "@/context/UserDetailContext";
 import moduleOnex from "../static/moduleOne.json";
 
@@ -92,7 +91,7 @@ const Sidebar = ({ setActiveComponent }) => {
           )) } */}
 
             {/* Dynamic Lessons Section */}
-            {moduleOnex?.lessons && moduleOne ? (
+            {moduleOnex[0]?.lessons && moduleOne ? (
               <>
                 <li
                   className="flex items-center text-yellow-400  text-xl gap-x-4 p-2 hover:bg-gray-800 rounded-md cursor-pointer"
@@ -115,7 +114,7 @@ const Sidebar = ({ setActiveComponent }) => {
                   Lecciones
                 </h2>
 
-                {moduleOnex.lessons.map((lesson, index) => (
+                {moduleOnex[0].lessons.map((lesson, index) => (
                   <li
                     key={index}
                     className="flex items-center gap-x-4 p-2 hover:bg-gray-800 rounded-md cursor-pointer"

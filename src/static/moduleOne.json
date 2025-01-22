@@ -1,23 +1,65 @@
-{
-  "title": "Modulo 1",
-  "description": "El aprendizaje y práctica de la natación gana cada día más adeptos en la población en general, habida cuenta que la sociedad comprende cada vez mejor la importancia y los valores de saber nadar desde la más temprana infancia. Y es que aprender a nadar en edades tempranas tiene, más que todo, un gran valor social, sabiendo que con ello se crean nuevos y perecederos hábitos de higiene, que influyen notablemente en la salud y en la calidad de vida de los niños y jóvenes. Por esas y otras muchas razones se extienden cada vez más programas de enseñanza de la natación, resultado necesario ofrecer a todos los instructores dedicados al arte de enseñar a nadar, los medios que contribuyan a enriquecer su arsenal de recursos técnicos para hacer más eficiente su labor. Hoy es universalmente aceptado por todos que el momento ideal para iniciar el aprendizaje es desde las más tempranas edades, incluso con pocos meses de vida, en los conocidos programas para bebés. Sin embargo, si bien cualquier edad es adecuada para aprender a nadar, trátese de bebés, niños, jóvenes, adultos e incluso adultos mayores, el programa que presentamos es universal, dirigido a niños de 6 y 7 años de edad, cuyo modelo debe ser utilizado y adecuado en cada lugar de acuerdo con las edades en que están iniciando sus programas respectivos, para ser adaptado convenientemente según esas características particulares que se dan en cada academia o entidad promotora de la natación.",
-  "totalLessons": 15,
-  "lessons": [
-    "Introduccion al Modulo 1",
-    "Conceptos sobre la natación infantil y las edades",
-    "Grupos de edades",
-    "Función social y deportiva",
-    "Principales fundamentaciones científicas",
-    "Caracterización psicológica de los nadadores",
-    "Consideraciones pedagógicas",
-    "La técnica en la Natación competitiva",
-    "La técnica del Delfín Subacuático",
-    "Experiencias técnicas en la preparación",
-    "Calentamiento y Regeneración",
-    "La formación de valores en los nadadores",
-    "Necesidades del control médico deportivo",
-    "Cronología de las principales tareas en la natación",
-    "Glosario. Conceptos y términos utilizados",
-    "Bibliografía"
-  ]
-}
+[
+  {
+    "title": "Modulo 1",
+    "description": "El aprendizaje y práctica de la natación gana cada día más adeptos en la población en general, habida cuenta que la sociedad comprende cada vez mejor la importancia y los valores de saber nadar desde la más temprana infancia. Y es que aprender a nadar en edades tempranas tiene, más que todo, un gran valor social, sabiendo que con ello se crean nuevos y perecederos hábitos de higiene, que influyen notablemente en la salud y en la calidad de vida de los niños y jóvenes. Por esas y otras muchas razones se extienden cada vez más programas de enseñanza de la natación, resultado necesario ofrecer a todos los instructores dedicados al arte de enseñar a nadar, los medios que contribuyan a enriquecer su arsenal de recursos técnicos para hacer más eficiente su labor. Hoy es universalmente aceptado por todos que el momento ideal para iniciar el aprendizaje es desde las más tempranas edades, incluso con pocos meses de vida, en los conocidos programas para bebés. Sin embargo, si bien cualquier edad es adecuada para aprender a nadar, trátese de bebés, niños, jóvenes, adultos e incluso adultos mayores, el programa que presentamos es universal, dirigido a niños de 6 y 7 años de edad, cuyo modelo debe ser utilizado y adecuado en cada lugar de acuerdo con las edades en que están iniciando sus programas respectivos, para ser adaptado convenientemente según esas características particulares que se dan en cada academia o entidad promotora de la natación.",
+    "totalLessons": 15,
+    "lessons": [
+      "Introduccion al Modulo 1",
+      "Conceptos sobre la natación infantil y las edades",
+      "Grupos de edades",
+      "Función social y deportiva",
+      "Principales fundamentaciones científicas",
+      "Caracterización psicológica de los nadadores",
+      "Consideraciones pedagógicas",
+      "La técnica en la Natación competitiva",
+      "La técnica del Delfín Subacuático",
+      "Experiencias técnicas en la preparación",
+      "Calentamiento y Regeneración",
+      "La formación de valores en los nadadores",
+      "Necesidades del control médico deportivo",
+      "Cronología de las principales tareas en la natación",
+      "Glosario. Conceptos y términos utilizados",
+      "Bibliografía"
+    ],
+    "price": 50
+  },
+  {
+    "title": "Modulo 2",
+    "description": "Enseñar a nadar supone la aplicación de una metodologí que, partiendo de criterios pedagógicos, se realiza progresivamente, de lo simple a lo complejo, comenzando por lo que denominamos “Formación Básica”, que consiste en el proceso de adaptación de los niños al agua y a familiarizarlos con el nuevo medio, creando las condiciones de seguridad y disposición necesarias para iniciar seguidamente la enseñanza de las técnicas de nado en libre y espalda, pecho y mariposa, además de las correspondientes vueltas y partidas, en la medida que avance el programa concebido.",
+    "totalLessons": 31,
+    "lessons": [
+      "Introducción",
+      "Las condiciones para aprender a nadar",
+      "La seguridad, factor clave",
+      "Los métodos de enseñanza",
+      "Orden Metodológico en la enseñanza",
+      "técnica de Libre",
+      "técnica de Espalda.",
+      "técnica de Pecho.",
+      "técnica de Mariposa.",
+      "Metodología de la enseñanza por Niveles.",
+      "Nivel 1.",
+      "Nivel 2.",
+      "Nivel 3.",
+      "Nivel 4.",
+      "Nivel 5, primera variante.",
+      "Nivel 5, segunda variante.",
+      "Nivel 6, primera variante.",
+      "Nivel 6, segunda variante.",
+      "Nivel 7, primera variante.",
+      "Nivel 7, segunda variante.",
+      "Nivel 8, primera variante.",
+      "Nivel 8, segunda variante.",
+      "Programa de Controles por Niveles.",
+      "Controles pedagógicos",
+      "La preparación de las Clases. Los Juegos.",
+      "Aspectos técnicos y culturales",
+      "Los errores técnicos de los nadadores.",
+      "Consideraciones generales",
+      "La Selección de prospectos y probables talentos.",
+      "Importantes conceptos sobre prospectos y talentos.",
+      "Láminas de las técnicas de nado."
+    ],
+    "price": 50
+  }
+]

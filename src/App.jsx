@@ -9,6 +9,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import MyCourses from "./pages/MyCourses";
 import Courses from "./pages/Courses";
 import UserProfile from "./pages/UserProfile";
+import CoursesInfoPay from "./pages/CoursesInfoPay";
+import PaymentCheck from "./pages/PaymentCheck";
 
 export default function App() {
   return (
@@ -33,6 +35,11 @@ export default function App() {
           <Route
             path="/profile"
             element={<ProtectedRoute element={<UserProfile />} />}
+          />
+          <Route path="/courses-info" element={<CoursesInfoPay />} />
+          <Route
+            path="/payment-check"
+            element={<ProtectedRoute element={<PaymentCheck />} />}
           />
         </Routes>
       </Layaut>

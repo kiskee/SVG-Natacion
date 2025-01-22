@@ -7,7 +7,7 @@ import lessonsOne from "../static/lessonsOne.json";
 import ContentLesson from "@/components/ContentLesson";
 
 export default function MyCourses() {
-  const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const { userDetail } = useContext(UserDetailContext);
   const [activeComponent, setActiveComponent] = useState(null);
   const [currentIndex, setCurrentIndex] = useState();
   const [renderMe, setRenderMe] = useState(
@@ -19,7 +19,6 @@ export default function MyCourses() {
   useEffect(() => {
     const fetchData = async () => {
       if (activeComponent) {
-        console.log(activeComponent);
         try {
           const currentIndexOne = lessonsOne.findIndex(
             (less) => less.title === activeComponent
