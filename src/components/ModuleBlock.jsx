@@ -1,10 +1,28 @@
 import { Book, List } from "lucide-react";
+import WompiPay from "./WompiPay";
+import { useState, useEffect } from "react";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
-export default function ModuleBlock({ moduleData }) {
+export default function ModuleBlock({ moduleData, user }) {
+  const [userModule, setUserModule] = useState(false);
+
+  useEffect(() => {
+    const moduleId = moduleData.id;
+    if (user.modules) {
+      const userIdModule = user.modules.find(
+        (module) => module.courseId == moduleId
+      );
+      if (moduleId == userIdModule.courseId) {
+        setUserModule(true);
+      }
+    }
+  }, [user]);
+
   // body
   return (
     <>
-      <div className="max-w-4xl mx-auto mt-10 p-6 inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent shadow-xl rounded-lg mb-4">
+      <div className="max-w-4xl mx-auto mt-10 p-6 inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent shadow-xl rounded-lg ">
         {/* Header */}
         <div className="mb-6 text-center">
           <h1 className="text-3xl font-bold text-cyan-500 mb-2">
@@ -45,6 +63,21 @@ export default function ModuleBlock({ moduleData }) {
             ))}
           </ul>
         </div>
+        {userModule ? (
+          <>
+            <div className="flex flex-col items-center m-4">
+              <Link to="/my-courses">
+                <Button className="bg-yellow-500 text-black text-xl">
+                  Empieza tu mdoulo ahora!
+                </Button>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div className="mt-6">
+            <WompiPay currency={moduleData.currency} value={moduleData.price} />
+          </div>
+        )}
       </div>
     </>
   );

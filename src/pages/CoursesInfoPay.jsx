@@ -4,7 +4,6 @@ import moduleOne from "@/static/moduleOne.json";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import WompiPay from "@/components/WompiPay";
 
 export default function CoursesInfoPay() {
   const { userDetail } = useContext(UserDetailContext);
@@ -13,8 +12,7 @@ export default function CoursesInfoPay() {
     <>
       {userDetail ? (
         <>
-          <ModuleBlock moduleData={moduleOne[0]} />
-          <WompiPay currency="COP" value="7000000" />
+          <ModuleBlock moduleData={moduleOne[0]} user={userDetail} />
         </>
       ) : (
         <div className="flex flex-col items-center gap-4 m-8">

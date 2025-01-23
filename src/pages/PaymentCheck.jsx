@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import ModuleService from "@/services/moduleService";
+import { UserDetailContext } from "@/context/UserDetailContext";
 
 export default function PaymentCheck() {
   const [searchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
   const [trasactionData, setTrasactionData] = useState(null);
+  const { userDetail, updateUserDetail } = useContext(UserDetailContext);
   const navigate = useNavigate();
 
   // Obtén los parámetros de la URL
@@ -20,6 +22,8 @@ export default function PaymentCheck() {
         value: id,
       });
 
+      const userDataToUpdate = await ModuleService.users.getById(userDetail.id);
+      updateUserDetail({ modules: userDataToUpdate.modules });
       setTrasactionData(trasactionDataCall);
 
       // relacionar el usuario y crear el modulo

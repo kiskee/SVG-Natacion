@@ -1,5 +1,6 @@
 [
   {
+    "id": "678aaa7ef28e21b40c841554",
     "title": "Modulo 1",
     "description": "El aprendizaje y práctica de la natación gana cada día más adeptos en la población en general, habida cuenta que la sociedad comprende cada vez mejor la importancia y los valores de saber nadar desde la más temprana infancia. Y es que aprender a nadar en edades tempranas tiene, más que todo, un gran valor social, sabiendo que con ello se crean nuevos y perecederos hábitos de higiene, que influyen notablemente en la salud y en la calidad de vida de los niños y jóvenes. Por esas y otras muchas razones se extienden cada vez más programas de enseñanza de la natación, resultado necesario ofrecer a todos los instructores dedicados al arte de enseñar a nadar, los medios que contribuyan a enriquecer su arsenal de recursos técnicos para hacer más eficiente su labor. Hoy es universalmente aceptado por todos que el momento ideal para iniciar el aprendizaje es desde las más tempranas edades, incluso con pocos meses de vida, en los conocidos programas para bebés. Sin embargo, si bien cualquier edad es adecuada para aprender a nadar, trátese de bebés, niños, jóvenes, adultos e incluso adultos mayores, el programa que presentamos es universal, dirigido a niños de 6 y 7 años de edad, cuyo modelo debe ser utilizado y adecuado en cada lugar de acuerdo con las edades en que están iniciando sus programas respectivos, para ser adaptado convenientemente según esas características particulares que se dan en cada academia o entidad promotora de la natación.",
     "totalLessons": 15,
@@ -21,7 +22,8 @@
       "Glosario. Conceptos y términos utilizados",
       "Bibliografía"
     ],
-    "price": 50
+    "price": "20000000",
+    "currency": "COP"
   },
   {
     "title": "Modulo 2",

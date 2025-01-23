@@ -32,6 +32,10 @@ const Sidebar = ({ setActiveComponent }) => {
     },
   ];
 
+  const validModule = userDetail.modules.find(
+    (module) => module.courseId == moduleOnex[0].id
+  );
+
   return (
     <div className="relative">
       <div
@@ -73,23 +77,6 @@ const Sidebar = ({ setActiveComponent }) => {
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto mt-6 custom-scrollbar">
           <ul>
-            {/* {moduleOne && menuItems.map((item, index) => (
-            <Link to={item.path} key={index}>
-              <li
-                className={`flex items-center gap-x-4 p-2 hover:bg-gray-800 
-                            rounded-md cursor-pointer`}
-                onClick={() => setActiveComponent(item.title)}
-              >
-                <span>{item.icon}</span>
-                <span
-                  className={`${!isOpen && "hidden"} origin-left duration-200`}
-                >
-                  {item.title}
-                </span>
-              </li>
-            </Link>
-          )) } */}
-
             {/* Dynamic Lessons Section */}
             {moduleOnex[0]?.lessons && moduleOne ? (
               <>
@@ -146,21 +133,22 @@ const Sidebar = ({ setActiveComponent }) => {
                     </li>
                   </Link>
                 ))}
-                {userDetail.role == "admin" && (
-                  <li
-                    className="flex items-center text-yellow-400  text-xl gap-x-4 p-2 hover:bg-gray-800 rounded-md cursor-pointer"
-                    onClick={() => setModuleOne(!moduleOne)}
-                  >
-                    <Pyramid color="cyan" />
-                    <span
-                      className={`${
-                        !isOpen && "hidden"
-                      } origin-left duration-200`}
+                {userDetail.role == "admin" ||
+                  (userDetail.role == "student" && validModule && (
+                    <li
+                      className="flex items-center text-yellow-400  text-xl gap-x-4 p-2 hover:bg-gray-800 rounded-md cursor-pointer"
+                      onClick={() => setModuleOne(!moduleOne)}
                     >
-                      Modulo 1
-                    </span>
-                  </li>
-                )}
+                      <Pyramid color="cyan" />
+                      <span
+                        className={`${
+                          !isOpen && "hidden"
+                        } origin-left duration-200`}
+                      >
+                        Modulo 1
+                      </span>
+                    </li>
+                  ))}
               </>
             )}
           </ul>

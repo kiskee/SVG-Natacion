@@ -52,10 +52,15 @@ export default function MyCourses() {
     const nextLesson = lessonsOne[currentIndex - 1];
     setActiveComponent(nextLesson.title);
   };
-
+  console.log("aca estyo", userDetail.role);
   return (
     <>
-      {userDetail.role != "admin" ? (
+      {userDetail.role === "admin" || userDetail.role === "student" ? (
+        <div className="flex">
+          <Sidebar setActiveComponent={setActiveComponent} />
+          {renderMe}
+        </div>
+      ) : (
         <div className="flex flex-col items-center gap-4 m-8">
           <h2 className="text-5xl text-white">
             No Tienes ningun curso En el momento
@@ -65,11 +70,6 @@ export default function MyCourses() {
               Ve al Inicio
             </Button>
           </Link>
-        </div>
-      ) : (
-        <div className="flex">
-          <Sidebar setActiveComponent={setActiveComponent} />
-          {renderMe}
         </div>
       )}
     </>
