@@ -23,7 +23,7 @@ export default function PaymentCheck() {
       });
 
       const userDataToUpdate = await ModuleService.users.getById(userDetail.id);
-      updateUserDetail({ modules: userDataToUpdate.modules });
+      updateUserDetail({ modules: userDataToUpdate.modules, role: userDataToUpdate.role });
       setTrasactionData(trasactionDataCall);
 
       // relacionar el usuario y crear el modulo
