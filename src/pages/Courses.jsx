@@ -21,9 +21,11 @@ export default function Courses() {
               <span className="block text-cyan-400 mt-2">Natación</span>
             </h1>
             <div className="flex flex-col items-center mb-6">
+            <Link to="/courses-info">
               <Button className="w-auto bg-yellow-400 hover:bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded">
-                <Link to="/courses-info">Explora el Contenido de los cursos</Link>
+               Explora el Contenido de los cursos
               </Button>
+              </Link>
             </div>
             <p className="text-xl text-gray-300 text-center max-w-3xl mx-auto">
               Programa integral diseñado para formar profesionales de la
@@ -270,9 +272,11 @@ export default function Courses() {
           </div>
         </div>
         <div className="flex flex-col items-center mb-6">
+        <Link to="/courses-info">
           <Button className="w-auto bg-yellow-400 hover:bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded">
-            <Link to="/courses-info">Explora el Contenido de los cursos</Link>
+            Explora el Contenido de los cursos
           </Button>
+          </Link>
         </div>
       </div>
     </>
