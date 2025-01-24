@@ -9,7 +9,7 @@ export default function ModuleBlock({ moduleData, user }) {
 
   useEffect(() => {
     const moduleId = moduleData.id;
-    if (user.modules) {
+    if (user.modules.lenght > 1) {
       const userIdModule = user.modules.find(
         (module) => module.courseId == moduleId
       );

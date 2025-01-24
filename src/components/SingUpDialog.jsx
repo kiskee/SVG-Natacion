@@ -1,16 +1,7 @@
 import { useContext, useState } from "react";
 import { UserDetailContext } from "@/context/UserDetailContext";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import logo from "../assets/final.png";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -29,6 +20,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { apiService } from "../services/apiService";
 import { useGoogleLogin } from "@react-oauth/google";
+import { Eye, EyeOff } from "lucide-react";
 
 const formSchema = z.object({
   email: z
@@ -67,6 +59,7 @@ const formSchema = z.object({
 export default function SingUpDialog() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const [openSingINDialog, setOpenSingINDialog] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   // 1. Define your form.
   const form = useForm({
@@ -101,7 +94,7 @@ export default function SingUpDialog() {
 
         // Guardar en el estado y localStorage
         setUserDetail({
-          ...user,
+          ...login.user,
           token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
         });
         navigate("/", { replace: true });
@@ -128,7 +121,7 @@ export default function SingUpDialog() {
       const loginParams = { email: values.email, password: values.password };
       const login = await apiService.post("/auth/login", loginParams);
       setUserDetail({
-        ...user,
+        ...login.user,
         token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
       });
       navigate("/", { replace: true });
@@ -137,14 +130,22 @@ export default function SingUpDialog() {
     }
   }
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   // body
   return (
     <>
       {userDetail ? (
         <div className="flex flex-col items-center gap-4 m-8">
-          <h2 className="text-5xl text-white">Ya estas registrado en nuestra base datos!</h2>
+          <h2 className="text-5xl text-white">
+            Ya estas registrado en nuestra base datos!
+          </h2>
           <Link to="/">
-            <Button  className="bg-yellow-500 text-black text-xl">Ve al Inicio</Button>
+            <Button className="bg-yellow-500 text-black text-xl">
+              Ve al Inicio
+            </Button>
           </Link>
         </div>
       ) : (
@@ -263,7 +264,6 @@ export default function SingUpDialog() {
                       </FormItem>
                     )}
                   />
-
                   <FormField
                     control={form.control}
                     name="password"
@@ -274,15 +274,33 @@ export default function SingUpDialog() {
                       >
                         <FormLabel className="text-right">Contraseña</FormLabel>
                         <div className="col-span-3">
-                          <FormControl>
-                            <Input
-                              type="password"
-                              className="w-2/3"
-                              placeholder="Hello@123"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormDescription className="text-xs">
+                          <div className="flex-row flex">
+                            <FormControl>
+                              <Input
+                                type={showPassword ? "text" : "password"}
+                                className="w-2/3"
+                                placeholder="Hello@123"
+                                {...field}
+                              />
+                            </FormControl>
+                            <button
+                              type="button"
+                              onClick={togglePasswordVisibility}
+                              className="ml-4"
+                              aria-label={
+                                showPassword
+                                  ? "Ocultar contraseña"
+                                  : "Mostrar contraseña"
+                              }
+                            >
+                              {showPassword ? (
+                                <EyeOff className="w-5 h-5 text-gray-500" />
+                              ) : (
+                                <Eye className="w-5 h-5 text-gray-500" />
+                              )}
+                            </button>
+                          </div>
+                          <FormDescription className="text-xs mt-2">
                             Debe incluir mayúsculas, minúsculas, números y
                             caracteres especiales (@$!%*?&)
                           </FormDescription>
