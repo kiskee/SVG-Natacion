@@ -85,10 +85,6 @@ export default function SingUpDialog() {
 
         const user = userInfo.data;
 
-        const register = await apiService.post("/users", user);
-        if (!register._id) {
-          throw new Error("error durin register");
-        }
         // Enviar el login y obtener el JWT
         const login = await apiService.post("/auth/login-google", user);
 
