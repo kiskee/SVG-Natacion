@@ -201,7 +201,7 @@ export default function UserProfile() {
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                      <AlertDialogCancel onClick={handleDialogClose}>
+                      <AlertDialogCancel onClick={handleDialogClose} className="bg-black hover:bg-red-500">
                         Cancelar
                       </AlertDialogCancel>
                       <AlertDialogAction

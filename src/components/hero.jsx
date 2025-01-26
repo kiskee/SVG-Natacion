@@ -1,71 +1,175 @@
 import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { UserDetailContext } from "@/context/UserDetailContext";
+import { motion } from "framer-motion";
+import { BookOpen, Award, Clock } from "lucide-react";
 
 export default function Hero() {
-  const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const [activeModule, setActiveModule] = useState(null);
+
+  const moduleDetails = [
+    {
+      title: "Conceptos Fundamentales",
+      content:
+        "Comprensión profunda de la natación infantil, sus etapas de desarrollo y principios pedagógicos.",
+      topics: [
+        "Natación en edades tempranas",
+        "Desarrollo psicomotor",
+        "Técnicas de enseñanza",
+      ],
+    },
+    {
+      title: "Desarrollo Técnico",
+      content:
+        "Formación en técnicas de nado, metodologías de entrenamiento y desarrollo infantil.",
+      topics: [
+        "Técnicas de nado competitivo",
+        "Delfín subacuático",
+        "Preparación física infantil",
+      ],
+    },
+    {
+      title: "Aspectos Formativos",
+      content:
+        "Enfoque en la formación integral del nadador, más allá del rendimiento deportivo.",
+      topics: [
+        "Formación de valores",
+        "Prevención de lesiones",
+        "Desarrollo psicológico",
+      ],
+    },
+  ];
+  const statsData = [
+    {
+      icon: <Award className="text-cyan-500" size={48} />,
+      number: "500+",
+      label: "Entrenadores Graduados",
+    },
+    {
+      icon: <BookOpen className="text-cyan-500" size={48} />,
+      number: "6",
+      label: "Módulos de Estudio",
+    },
+    {
+      icon: <Clock className="text-cyan-500" size={48} />,
+      number: "10+",
+      label: "Años de Experiencia",
+    },
+  ];
 
   // body
   return (
     <>
-      <div className="relative bg-black min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent"></div>
-        </div>
+      <div className="relative bg-black min-h-screen flex flex-col">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent"></div>
 
-        {/* Main Content */}
-        <div className="relative container mx-auto px-4 py-16 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Formación Profesional de
-            <span className="block text-cyan-500">
-              Entrenadores de Natación
-            </span>
-          </h1>
+        <div className="relative container mx-auto px-4 py-16 flex-grow flex flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <h1 className="text-5xl font-bold text-white mb-4">
+              Formación Profesional
+              <span className="block text-cyan-500 mt-2">
+                Entrenadores de Natación
+              </span>
+            </h1>
 
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Desarrolla tus habilidades y conviértete en un entrenador
-            profesional de natación con nuestro programa especializado.
-          </p>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-12">
+              Programa de Certificación avalado por Acuática Nelson Vargas y
+              diseñado por MSc. Sergio Valiente Gómez
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/register"
-              className="px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition-colors"
-            >
-              <button className="font-bold text-xl">Comenzar Ahora</button>
-            </Link>
-            <Link
-              to="/info"
-              className="px-8 py-3 border-2 border-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-500/20 transition-colors"
-            >
-              <button className="font-bold text-xl">Conoce Nuestro Mentor</button>
-            </Link>
-
-            <Link
-              to="/courses"
-              className="px-8 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition-colors mb-8"
-            >
-              <button className="font-bold text-xl">Explora Nuestros Cursos</button>
-            </Link>
-          </div>
-
-          {/* Stats Section */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-lg bg-black/50 backdrop-blur-sm border border-cyan-500/20">
-              <div className="text-4xl font-bold text-cyan-500 mb-2">500+</div>
-              <div className="text-gray-300">Entrenadores Graduados</div>
+            <div className="flex flex-wrap justify-center gap-6 mb-16">
+              {[
+                {
+                  to: "/register",
+                  text: "Comenzar Ahora",
+                  style: "bg-cyan-500 text-black",
+                },
+                {
+                  to: "/info",
+                  text: "Conoce Nuestro Mentor",
+                  style: "border-2 border-cyan-500 text-white",
+                },
+                {
+                  to: "/courses",
+                  text: "Explora Módulos",
+                  style: "bg-yellow-500 text-black",
+                },
+              ].map((btn, index) => (
+                <motion.div
+                  key={btn.text}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <Link
+                    to={btn.to}
+                    className={`
+                    px-8 py-3 rounded-lg font-semibold 
+                    transition-all duration-300 
+                    hover:brightness-110
+                    ${btn.style}
+                  `}
+                  >
+                    {btn.text}
+                  </Link>
+                </motion.div>
+              ))}
             </div>
-            <div className="p-6 rounded-lg bg-black/50 backdrop-blur-sm border border-cyan-500/20">
-              <div className="text-4xl font-bold text-cyan-500 mb-2">95%</div>
-              <div className="text-gray-300">Tasa de Empleabilidad</div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              {moduleDetails.map((module, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  onHoverStart={() => setActiveModule(index)}
+                  onHoverEnd={() => setActiveModule(null)}
+                  className={`
+                  p-6 rounded-lg border-2 transition-all duration-300
+                  ${
+                    activeModule === index
+                      ? "bg-cyan-500/20 border-cyan-500"
+                      : "bg-black/50 border-transparent"
+                  }
+                `}
+                >
+                  <h3 className="text-2xl font-bold text-cyan-500 mb-4">
+                    {module.title}
+                  </h3>
+                  <p className="text-gray-300 mb-4">{module.content}</p>
+                  <ul className="text-gray-400 list-disc list-inside">
+                    {module.topics.map((topic, idx) => (
+                      <li key={idx}>{topic}</li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
             </div>
-            <div className="p-6 rounded-lg bg-black/50 backdrop-blur-sm border border-cyan-500/20">
-              <div className="text-4xl font-bold text-cyan-500 mb-2">10+</div>
-              <div className="text-gray-300">Años de Experiencia</div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {statsData.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.3 }}
+                  className="bg-black/50 backdrop-blur-sm border border-cyan-500/20 p-6 rounded-lg text-center"
+                >
+                  <div className="flex justify-center mb-4">{stat.icon}</div>
+                  <div className="text-4xl font-bold text-cyan-500 mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-300">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
