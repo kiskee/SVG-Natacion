@@ -56,6 +56,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -67,6 +68,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
+      setIsLoading(true);
       try {
         const userInfo = await axios.get(
           import.meta.env.VITE_GOOGLE_SINGIN_URL,
@@ -85,6 +87,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
           ...login.user,
           token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
         });
+        setIsLoading(false);
         closeDialog(false);
       } catch (error) {
         setError(error.message);
@@ -95,12 +98,14 @@ export default function SingInDialog({ openDialog, closeDialog }) {
 
   async function onSubmit(values) {
     try {
+      setIsLoading(true);
       const user = values;
       const login = await apiService.post("/auth/login", user);
       setUserDetail({
         ...login.user,
         token: login.accessToken, // Suponiendo que tu API devuelve el token como `jwtToken`
       });
+      setIsLoading(false);
       closeDialog(false);
     } catch (error) {
       setError(error.message);
@@ -148,6 +153,16 @@ export default function SingInDialog({ openDialog, closeDialog }) {
               </DialogDescription>
             )}
           </DialogHeader>
+          
+          {isLoading ? (<div className="text-center">
+            <h1 className="text-4xl font-bold text-cyan-500 mb-4 animate-pulse">
+            Cargando tu perfil, gracias por tu paciencia...
+            </h1>
+            <div className="flex justify-center">
+              {/* Spinner animado con Tailwind */}
+              <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          </div>) : (<>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
               <div className="grid gap-4 py-4">
@@ -220,50 +235,6 @@ export default function SingInDialog({ openDialog, closeDialog }) {
                     </FormItem>
                   )}
                 />
-
-                {/* <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem
-                      className="grid grid-cols-4 items-center gap-4 mr-4"
-                      id="password-form-item"
-                    >
-                      <FormLabel className="text-right">Contraseña</FormLabel>
-                      <div className="col-span-3 flex items-center">
-                        <FormControl>
-                          <Input
-                            type={showPassword ? "text" : "password"}
-                            className="w-2/3"
-                            placeholder="Hello@123"
-                            {...field}
-                          />
-                        </FormControl>
-                        <button
-                          type="button"
-                          onClick={togglePasswordVisibility}
-                          className="ml-2"
-                          aria-label={
-                            showPassword
-                              ? "Ocultar contraseña"
-                              : "Mostrar contraseña"
-                          }
-                        >
-                          {showPassword ? (
-                            <EyeOff className="w-5 h-5 text-gray-500" />
-                          ) : (
-                            <Eye className="w-5 h-5 text-gray-500" />
-                          )}
-                        </button>
-                        <FormDescription className="text-xs mt-2">
-                          Debe incluir mayúsculas, minúsculas, números y
-                          caracteres especiales (@$!%*?&)
-                        </FormDescription>
-                        <FormMessage />
-                      </div>
-                    </FormItem>
-                  )}
-                /> */}
               </div>
               <div className="flex items-center flex-col gap-4">
                 <Button
@@ -275,6 +246,7 @@ export default function SingInDialog({ openDialog, closeDialog }) {
               </div>
             </form>
           </Form>
+
           <Button
             className="bg-white text-black text-xl w-2/3 "
             onClick={googleLogin}
@@ -288,6 +260,8 @@ export default function SingInDialog({ openDialog, closeDialog }) {
           >
             Registrate
           </Button>
+          </>)}
+          
           <p className="text-xs">
             Al utilizar SVG - Natacion, acepta la recopilación de datos de uso
             para análisis
