@@ -52,7 +52,7 @@ export default function MyCourses() {
     const nextLesson = lessonsOne[currentIndex - 1];
     setActiveComponent(nextLesson.title);
   };
-  console.log("aca estyo", userDetail.role);
+  
   return (
     <>
       {userDetail.role === "admin" || userDetail.role === "student" ? (

@@ -8,6 +8,7 @@ export default function PaymentCheck() {
   const [isLoading, setIsLoading] = useState(true);
   const [trasactionData, setTrasactionData] = useState(null);
   const { userDetail, updateUserDetail } = useContext(UserDetailContext);
+  const [status, setStatus] = useState("");
   const navigate = useNavigate();
 
   // Obtén los parámetros de la URL
@@ -21,9 +22,12 @@ export default function PaymentCheck() {
         field: "data.transaction.id",
         value: id,
       });
-
+      setStatus(trasactionDataCall.data.transaction.status);
       const userDataToUpdate = await ModuleService.users.getById(userDetail.id);
-      updateUserDetail({ modules: userDataToUpdate.modules, role: userDataToUpdate.role });
+      updateUserDetail({
+        modules: userDataToUpdate.modules,
+        role: userDataToUpdate.role,
+      });
       setTrasactionData(trasactionDataCall);
 
       // relacionar el usuario y crear el modulo
@@ -56,12 +60,24 @@ export default function PaymentCheck() {
           </div>
         ) : (
           // Contenido final
-          <div className="w-full max-w-6xl grid grid-cols-2 ss:grid-cols-1 gap-8">
+          <div
+            className={`w-full max-w-6xl grid ${
+              status === "DECLINED"
+                ? "grid-cols-1"
+                : "grid-cols-2 ss:grid-cols-1"
+            } gap-8`}
+          >
             {/* Columna izquierda: Detalles de la transacción */}
-            <div className="bg-gray-500 p-8 rounded-lg shadow-lg">
-              <h1 className="text-4xl font-bold text-cyan-500 mb-6 text-center">
-                Pago procesado con éxito
-              </h1>
+            <div className="inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent p-8 rounded-lg shadow-lg">
+              {status === "APPROVED" ? (
+                <h1 className="text-4xl font-bold text-cyan-500 mb-6 text-center">
+                  Pago procesado con éxito
+                </h1>
+              ) : (
+                <h1 className="text-4xl font-bold text-red-500 mb-6 text-center">
+                  Pago Rechazado!
+                </h1>
+              )}
 
               {/* Detalles de la transacción */}
               <div className="space-y-6">
@@ -71,7 +87,7 @@ export default function PaymentCheck() {
                     Estado
                   </h2>
                   <p className="text-lg text-gray-300">
-                    {trasactionData.data.transaction.status === "APPROVED" ? (
+                    {status === "APPROVED" ? (
                       <span className="text-green-500">Aprobado</span>
                     ) : (
                       <span className="text-red-500">Rechazado</span>
@@ -150,26 +166,35 @@ export default function PaymentCheck() {
             </div>
 
             {/* Columna derecha: Botones de acción */}
-            <div className="bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col justify-center space-y-6">
+            {status != "DECLINED" ? (
+              <div className="bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col justify-center space-y-6">
+                <button
+                  onClick={() => handleNavigation("/my-courses")}
+                  className="w-full bg-cyan-500 text-black text-2xl font-bold py-4 rounded-lg hover:bg-cyan-600 transition duration-300"
+                >
+                  Comenzar Módulo 1
+                </button>
+                <button
+                  onClick={() => handleNavigation("/profile")}
+                  className="w-full bg-cyan-500 text-black text-2xl font-bold py-4 rounded-lg hover:bg-cyan-600 transition duration-300"
+                >
+                  Ir a Perfil
+                </button>
+                <button
+                  onClick={() => handleNavigation("/")}
+                  className="w-full bg-cyan-500 text-black text-2xl font-bold py-4 rounded-lg hover:bg-cyan-600 transition duration-300"
+                >
+                  Inicio
+                </button>
+              </div>
+            ) : (
               <button
-                onClick={() => handleNavigation("/my-courses")}
-                className="w-full bg-cyan-500 text-black text-2xl font-bold py-4 rounded-lg hover:bg-cyan-600 transition duration-300"
+                onClick={() => handleNavigation("/courses-info")}
+                className="w-full bg-yellow-500 text-black text-2xl font-bold py-4 rounded-lg hover:bg-cyan-600 transition duration-300"
               >
-                Comenzar Módulo 1
+                Volver a realizar el pago
               </button>
-              <button
-                onClick={() => handleNavigation("/profile")}
-                className="w-full bg-cyan-500 text-black text-2xl font-bold py-4 rounded-lg hover:bg-cyan-600 transition duration-300"
-              >
-                Ir a Perfil
-              </button>
-              <button
-                onClick={() => handleNavigation("/")}
-                className="w-full bg-cyan-500 text-black text-2xl font-bold py-4 rounded-lg hover:bg-cyan-600 transition duration-300"
-              >
-                Inicio
-              </button>
-            </div>
+            )}
           </div>
         )}
       </div>

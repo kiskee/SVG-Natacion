@@ -134,8 +134,6 @@ export default function Header() {
                       Perfil
                     </DropdownMenuItem>
                   </Link>
-                  <DropdownMenuItem>Settings</DropdownMenuItem>
-                  <DropdownMenuItem>Keyboard shortcuts</DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
