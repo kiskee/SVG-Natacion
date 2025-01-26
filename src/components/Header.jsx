@@ -82,32 +82,18 @@ export default function Header() {
               >
                 Ingresa
               </Button>
+              <Link to="/register">
               <Button
                 className="bg-cyan-500 text-black hover:bg-cyan-400 transition-colors w-24"
                 //onClick={() => setOpenSingUpDialog(true)}
               >
-                <Link to="/register"> Registrate</Link>
+                Registrate
               </Button>
+              </Link>
             </ul>
           </nav>
         ) : (
           <div className="flex flex-row">
-            {/* <DropdownMenu>
-              <DropdownMenuTrigger asChild className="m-6">
-                <Button className="bg-cyan-600 text-white">Menu</Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-24 bg-black flex items-center flex-col">
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                <Link to="/my-courses">
-                  <DropdownMenuItem className="text-white m-2 hover:bg-cyan-500">
-                    Mis Cursos
-                  </DropdownMenuItem>
-                  </Link>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu> */}
-
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Avatar className="m-4 mt-5 ss:mt-6">

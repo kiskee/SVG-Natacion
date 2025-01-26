@@ -60,6 +60,7 @@ export default function SingUpDialog() {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const [openSingINDialog, setOpenSingINDialog] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   // 1. Define your form.
   const form = useForm({
@@ -95,7 +96,7 @@ export default function SingUpDialog() {
         });
         navigate("/", { replace: true });
       } catch (error) {
-        console.error("Error during login", error);
+        setError(error)
       }
     },
     onError: (errorResponse) => console.log(errorResponse),
@@ -122,7 +123,7 @@ export default function SingUpDialog() {
       });
       navigate("/", { replace: true });
     } catch (error) {
-      console.error("Error during register", error);
+      setError(error)
     }
   }
 
@@ -159,10 +160,17 @@ export default function SingUpDialog() {
                   className="relative z-10 mt-2"
                 />
               </div>
-              <div className="mt-2 text-center text-xl text-white">
+             
+              {error ? (
+                <h1 className="text-red-500 text-xl font-bold mt-8 text-center">
+                  {error}
+                </h1>
+              ) : (
+                <div className="mt-2 text-center text-xl text-white">
                 Para usar SVG - Natacion deberas ingresar en una cuenta
                 existente o crear una nueva
               </div>
+              )}
             </div>
 
             <Form {...form}>
