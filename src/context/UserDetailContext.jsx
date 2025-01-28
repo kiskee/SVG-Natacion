@@ -40,9 +40,24 @@ export const UserDetailProvider = ({ children }) => {
     }
   }, [userDetail]);
 
-   // Función personalizada para actualizar campos específicos de userDetail
-   const updateUserDetail = (updatedFields) => {
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem("userDetail");
+      localStorage.removeItem("authToken");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
+  // Función personalizada para actualizar campos específicos de userDetail
+  const updateUserDetail = (updatedFields) => {
     setUserDetail((prev) => {
+      if (!prev) return null; // Si no hay usuario, no hacer nada
+
       const updatedUser = { ...prev, ...updatedFields };
 
       // Actualizar el localStorage solo con los campos enviados
@@ -56,29 +71,36 @@ export const UserDetailProvider = ({ children }) => {
     });
   };
 
+  useEffect(() => {
+    const checkTokenExpiration = () => {
+      const storedToken = localStorage.getItem("authToken");
+      if (storedToken) {
+        const { expiresAt } = JSON.parse(storedToken);
+        const now = new Date().getTime();
+
+        if (now >= expiresAt) {
+          // Token expirado
+          setUserDetail(null);
+          localStorage.removeItem("userDetail");
+          localStorage.removeItem("authToken");
+        }
+      }
+    };
+
+    // Verifica cada minuto si el token sigue siendo válido
+    const interval = setInterval(checkTokenExpiration, 60 * 1000);
+
+    // Verificación inicial al montar el componente
+    checkTokenExpiration();
+
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar
+  }, []);
+
   return (
-    <UserDetailContext.Provider value={{ userDetail, setUserDetail , updateUserDetail }}>
+    <UserDetailContext.Provider
+      value={{ userDetail, setUserDetail, updateUserDetail }}
+    >
       {children}
     </UserDetailContext.Provider>
   );
 };
-
-// useEffect(() => {
-//   // Verifica cada minuto si el token sigue siendo válido
-//   const interval = setInterval(() => {
-//     const storedToken = localStorage.getItem("authToken");
-//     if (storedToken) {
-//       const { expiresAt } = JSON.parse(storedToken);
-//       const now = new Date().getTime();
-
-//       if (now >= expiresAt) {
-//         // Token expirado
-//         setUserDetail(null);
-//         localStorage.removeItem("userDetail");
-//         localStorage.removeItem("authToken");
-//       }
-//     }
-//   }, 60 * 1000); // Cada minuto
-
-//   return () => clearInterval(interval); // Limpia el intervalo al desmontar
-// }, []);
