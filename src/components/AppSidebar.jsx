@@ -115,24 +115,7 @@ const Sidebar = ({ setActiveComponent }) => {
               </>
             ) : (
               <>
-                {menuItems.map((item, index) => (
-                  <Link to={item.path} key={index}>
-                    <li
-                      className={`flex items-center gap-x-4 p-2 hover:bg-gray-800 
-                            rounded-md cursor-pointer`}
-                      onClick={() => setActiveComponent(item.title)}
-                    >
-                      <span>{item.icon}</span>
-                      <span
-                        className={`${
-                          !isOpen && "hidden"
-                        } origin-left duration-200`}
-                      >
-                        {item.title}
-                      </span>
-                    </li>
-                  </Link>
-                ))}
+              
                 {userDetail.role == "admin" ||
                   (userDetail.role == "student" && validModule && (
                     <li
