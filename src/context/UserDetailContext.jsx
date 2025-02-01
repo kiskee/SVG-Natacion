@@ -40,19 +40,6 @@ export const UserDetailProvider = ({ children }) => {
     }
   }, [userDetail]);
 
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.removeItem("userDetail");
-      localStorage.removeItem("authToken");
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, []);
-
   // Función personalizada para actualizar campos específicos de userDetail
   const updateUserDetail = (updatedFields) => {
     setUserDetail((prev) => {
