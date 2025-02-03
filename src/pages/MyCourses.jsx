@@ -71,6 +71,7 @@ export default function MyCourses() {
           if (lessonx) {
             setRenderMe(
               <ContentLesson
+              leyend={lessonx.order}
                 {...lessonx}
                 handleNext={handleNext}
                 handlePrevius={handlePrevius}

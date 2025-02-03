@@ -1,9 +1,11 @@
 import { createContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Crea el contexto
 export const UserDetailContext = createContext();
 
 export const UserDetailProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [userDetail, setUserDetail] = useState(() => {
     const storedUser = localStorage.getItem("userDetail");
     const storedToken = localStorage.getItem("authToken");
@@ -70,6 +72,7 @@ export const UserDetailProvider = ({ children }) => {
           setUserDetail(null);
           localStorage.removeItem("userDetail");
           localStorage.removeItem("authToken");
+          navigate("/", { replace: true }); // Redirige al inicio
         }
       }
     };

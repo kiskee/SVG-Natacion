@@ -41,7 +41,7 @@ const Sidebar = ({ setActiveComponent }) => {
       <div
         className={`${
           isOpen ? "w-72" : "w-24"
-        } duration-300 h-screen inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent border-r-2 border-cyan-500 text-white p-5 pt-8 relative flex flex-col`}
+        } duration-300 h-full inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent border-r-2 border-cyan-500 text-white p-5 pt-8 relative flex flex-col`}
       >
         {/* Toggle Button */}
         <button

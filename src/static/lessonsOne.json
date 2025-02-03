@@ -4,7 +4,7 @@
     "content": {
       "elements": [
         {
-          "type": "subtitle",
+          "type": "titleSup",
           "text": "A modo de introducción."
         },
         {
@@ -34,7 +34,7 @@
     "content": {
       "elements": [
         {
-          "type": "subtitle",
+          "type": "titleSup",
           "text": "Conceptos sobre la natación infantil y las edades"
         },
         {
@@ -83,7 +83,7 @@
     "content": {
       "elements": [
         {
-          "type": "subtitle",
+          "type": "titleSup",
           "text": "Los grupos de edades más apropiados para la enseñanza, para la formación de habilidades motoras y para el alto rendimiento deportivo."
         },
         {
@@ -107,67 +107,431 @@
     "order": 3
   },
   {
+    "title": "Edades Segunda Etapa",
+    "content": {
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Segunda Etapa"
+        },
+        {
+          "type": "paragraph",
+          "text": "La segunda etapa, mucho más larga que la primera, abarca las edades cronológicas comprendidas entre los 8 y los 12 años. Es una etapa predominantemente técnica, de formación de habilidades motoras hasta el punto más alto posible. Es el grupo de edades llamadas sensibles, cuando el sistema nervioso central y sus condiciones de maduración proveen a los niños la capacidad de apropiarse de una gran riqueza de nuevas habilidades y movimientos. Se complementa con el inicio y profundización del desarrollo de la Resistencia Aeróbica. Serán las dos tareas fundamentales, junto a la educación teórica de cómo lograr su cumplimiento. En consecuencia, la etapa correspondiente a la natación infantil es, por su esencia, una etapa pedagógica de contenidos educativos y formativos, que debe transcurrir sin precipitaciones ni exigencias exageradas que deterioren la disposición de los infantes para continuar posteriormente en un programa orientado hacia el alto rendimiento deportivo, cuando ingresen a las categorías juveniles."
+        },
+        {
+          "type": "paragraph",
+          "text": "Existen muchas experiencias en nuestros países que indican claramente cuantos talentos se pierden prematuramente por el solo hecho de insistir más en los resultados que en la técnica y en la creación de una buena base aeróbica. Ese error debe subsanarse definitivamente para trabajar en estos grupos de edades en aquellas tareas que sus características fisiológicas y psicológicas permiten."
+        },
+        {
+          "type": "subtitle",
+          "text": "Tercera etapa"
+        },
+        {
+          "type": "paragraph",
+          "text": "Se corresponde propiamente con las edades de iniciación al alto rendimiento deportivo, que exige en primera instancia el más alto nivel de mantenimiento y perfeccionamiento constante de la técnica, dando inicio a la especialización en determinadas técnicas y distancias. Se caracteriza por el incremento constante de los volúmenes de trabajo en agua, orientados a alcanzar el nivel más alto de desarrollo de las capacidades aeróbicas y anaeróbicas, mientras que en tierra se fortalecen todas las capacidades de rendimiento que en agua no pueden desarrollarse suficientemente, entre las cuales la flexibilidad y la fuerza tendrán prioridad."
+        },
+        {
+          "type": "paragraph",
+          "text": "El ingreso a esta etapa, si de buscar altos resultados deportivos se trata, es puramente selectivo, partiendo no solo de cualidades psíquicas importantes, sino también de características de la figura, las que van a tener gran influencia futura en los resultados que se pudieran alcanzar. Esta tercera etapa es más o menos larga en dependencia de la calidad deportiva que alcance cada nadador, lo cual será el motivo principal que lo mantendrá activo por determinado número de años. Pudiera extenderse como promedio por 10 o más años, si los resultados que se alcancen fueran alentadores, si hubiéramos preservado sus capacidades físicas y si la motivación necesaria para ello no hubiera sido prematuramente reducida a casi nada."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hoy es evidente que solo en la adultez es posible alcanzar los más altos resultados competitivos, lo que se aprecia en cualquier valoración que sobre edades de máximo rendimiento se haga, sea en el continente americano o en el mundo. No es casual que el promedio de edad de los mejores nadadores del mundo en Juegos Olímpicos y Campeonatos Mundiales indique que las mujeres finalistas tengan como promedio 22–23 años, mientras los hombres alcanzan 23-25 años, con edades más altas en las pruebas de velocidad y algo por debajo en las pruebas de fondo, más las excepciones correspondientes a toda regla."
+        }
+      ]
+    },
+    "order": 3.1
+  },
+  {
     "title": "Función social y deportiva",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "titleSup",
+          "text": "Función social y deportiva de la natación. Objetivo principal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ventajas que proporciona su práctica sistemática. Aportes que ofrece al niño en lo funcional, morfológico, higiénico y social. Límites que no deberían excederse. Felicidad y bienestar, objetivos principales."
+        },
+        {
+          "type": "subtitle",
+          "text": "Aspectos generales"
+        },
+        {
+          "type": "paragraph",
+          "text": "A todos los niños les resulta placentero introducirse en el agua. Si ésta tiene una temperatura agradable, el placer que reciben resulta mayor y entonces los juegos acuáticos ofrecen enorme felicidad a los pequeños."
+        },
+        {
+          "type": "paragraph",
+          "text": "Si usted observa con atención, podrá apreciar que los niños tienen una tendencia natural a introducirse en el agua, ya sea en la bañera o en la ducha o en un charco que dejó la lluvia, o a mojarse bajo la lluvia misma. Y efectivamente, esa tendencia de los niños pequeños es innata y constituye por sí misma un reencuentro con su origen. Y su origen, a veces olvidado por nosotros los adultos, es procedente precisamente de un medio líquido, en el cual vivió primero como embrión, después como feto, hasta que se desarrolló lo suficiente, a lo largo de nueve meses, para nacer y asomarse por vez primera a la tierra."
+        },
+        {
+          "type": "paragraph",
+          "text": "Y desde luego, estar nuevamente en contacto con el agua resulta muy natural, casi una necesidad. Por tanto, bañarse en una piscina, moverse libremente dentro de ella, jugar con otros niños en ese medio, es motivo de felicidad, placer físico y psíquico para los más pequeños de la familia."
+        },
+        {
+          "type": "paragraph",
+          "text": "Aunque se trata de una utopía, vale la pena decir que, si todos los niños tuvieran desde temprana edad acceso a las piscinas, nuestras sociedades de hoy tendrían menos problemas y tragedias."
+        },
+        {
+          "type": "paragraph",
+          "text": "La natación oferta al niño no solo placer y felicidad, también le ofrece seguridad en el medio acuático, trátese del mar, los ríos, lagos o en las propias piscinas. Y le reporta salud, haciendo crecer sus capacidades físicas e intelectuales armónicamente. Le proporciona nuevas amistades y hasta la posibilidad de destacarse en el ámbito de las competiciones deportivas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Por todo lo anterior suele decirse que la natación es el deporte más completo de todos los practicados por el hombre, dada la cantidad de ventajas motoras y de salud que de ella derivan si se practica sistemáticamente a cualquier edad, desde bebés hasta ancianos."
+        }
+      ]
     },
     "order": 4
   },
   {
-    "title": "Principales fundamentaciones científicas",
+    "title": "Edades más adecuadas para iniciar el aprendizaje y el entrenamiento.",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Edades más adecuadas para iniciar el aprendizaje y el entrenamiento."
+        },
+        {
+          "type": "paragraph",
+          "text": "Después del nacimiento del niño, una vez que su ombligo sanó completamente, cualquier momento es ideal para iniciarse en la natación. Hay experiencias en varios países que demuestran que los niños son capaces de aprender a nadar antes que a caminar e indican con datos precisos que esta práctica temprana fortalece de modo muy especial el sistema inmunológico de los lactantes. Pero ello requiere de piscinas muy especiales, climatizadas, con un adulto instruido en el tema dedicado a cada niño, lo que hace poco factible extender su práctica dadas las condiciones exquisitas que se necesitan, lo que no ha impedido que en Latinoamérica, en algunos países, existan hoy muchos programas de desarrollo que han permitido acumular experiencias y prestar ese valioso servicio."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ahora bien, lo más frecuente es que los niños se inicien en la natación entre los 3 y los 7 años de edad, e incluso más tarde. Y ciertamente, entre los 7 y los 8 años de edad ya los niños deben saber nadar, deben haber adquirido suficientes habilidades en el agua como para dominar relativamente bien los movimientos de piernas y brazos, la mecánica de la respiración y la coordinación de estos en las técnicas de libre y espalda, con un grado de maestría que les permita desplazarse en aguas profundas sobre distancias desde 25 hasta 200 metros con absoluta seguridad y sin utilización de medios auxiliares. Para los 8 años deben tener algunas nociones de la técnica de pecho y la patada de delfín."
+        },
+        {
+          "type": "paragraph",
+          "text": "La natación infantil debe estar estructurada para concluir a los 12 años, o dicho con más precisión, entre los 12 y los 13 años de edad cronológica, justamente cuando los niños dejan de serlo y entran progresivamente en la pubertad y se asoman a la adolescencia."
+        }
+      ]
     },
-    "order": 5
+    "order": 4.1
+  },
+  {
+    "title": "Ventajas que proporciona la práctica de la natación",
+    "content": {
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Ventajas que proporciona la práctica de la natación"
+        },
+        {
+          "type": "paragraph",
+          "text": "La práctica sistemática de la natación ofrece muchas ventajas, no solo a los niños, sino también a su familia. Un recorrido por las 5 virtudes de la práctica de la natación en edades tempranas nos indica que vale la pena hacer el mayor esfuerzo por lograr su incorporación a este deporte de manera temprana. Veamos las más improtantes:"
+        },
+        {
+          "type": "pointTitle",
+          "text": "Seguridad:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Cuando los niños saben nadar los riesgos de accidente se disminuyen y la posibilidad de una tragedia en la playa, en ríos, lagos o en las propias piscinas se reduce casi totalmente. Es muy reconfortante para la familia la tranquilidad adquirida cuando sus hijos aprendieron a nadar y son capaces por sí mismos de desplazarse sobre el agua, flotar, jugar en el medio acuático sin peligro para su vida. Desde luego, siempre hay que evaluar el medio acuático en que estarán, pues de todas maneras los peligros están siempre latentes, sobre todo en ríos, lagos y en el mar, e incluso en piscinas mal atendidas."
+        },
+        {
+          "type": "pointTitle",
+          "text": "Salud:"
+        },
+        {
+          "type": "paragraph",
+          "text": "La práctica frecuente de la natación, sus características como actividad que se realiza en un medio líquido, ejerce una influencia muy favorable en el fortalecimiento general de la salud. Actúa de manera especial sobre el sistema cardiorrespiratorio, constituido por el corazón, los pulmones, las arterias, venas y capilares, que alcanzarán dimensiones mayores y con ello una fluida y más amplia irrigación sanguínea a todos los tejidos del organismo humano, incluido el cerebro, todos los músculos, articulaciones, etc."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fortalece el aparato respiratorio, logrando un crecimiento significativo de la capacidad pulmonar, que tendrá una función mucho más eficiente, a partir de la acción de expulsar el aire bajo el agua, hecho que propiciará un trabajo más intenso de los músculos respiratorios y los mismos pulmones, órganos vitales del cuerpo humano."
+        },
+        {
+          "type": "paragraph",
+          "text": "El crecimiento longitudinal de los niños transcurrirá con mayor rapidez, por el hecho de que su cuerpo pierde dentro del agua aproximadamente las dos terceras partes de su peso y esto favorece los mecanismos de crecimiento."
+        },
+        {
+          "type": "paragraph",
+          "text": "Por esta misma causa, referida a la disminución significativa del peso del cuerpo sumergido en el agua, la natación no es un deporte traumático. Aquí no encontrará fracturas, ni lesiones, ni violencia física, como sucede en otros deportes terrestres, que en muchas ocasiones dejan secuelas para toda la vida. Y todos los músculos del cuerpo recibirán una cuota de trabajo perfectamente equilibrada, desarrollándose armónicamente, dando lugar a una excelente figura, fuerte pero elegante, sin exageraciones ni desproporciones desagradables."
+        }
+      ]
+    },
+    "order": 4.2
+  },
+  {
+    "title": "Continuacion Ventajas que proporciona la práctica de la natación",
+    "content": {
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Ventajas que proporciona la práctica de la natación"
+        },
+
+        {
+          "type": "pointTitle",
+          "text": "Empleo del tiempo libre:"
+        },
+        {
+          "type": "paragraph",
+          "text": "La utilización del tiempo libre en una actividad de tantos valores como la natación proporciona la tranquilidad de que los niños y jóvenes lo empleen justamente y de manera provechosa en función del fortalecimiento de su salud, de su desarrollo físico integral, del aumento considerable de sus capacidades de trabajo, de su sana recreación, algo sumamente importante para la familia, cuando es preciso conocer y controlar las actividades de los menores."
+        },
+        {
+          "type": "paragraph",
+          "text": "La práctica sistemática del deporte es un factor clave para aprovechar en una actividad sana el tiempo libre de que siempre disponen nuestros hijos, aportándole importantes hábitos de conducta con la regularidad requerida, además de alejarlo de las desgracias que hoy enfrentan las sociedades modernas con las drogas y otros males vigentes."
+        },
+        {
+          "type": "pointTitle",
+          "text": "Convivencia social:"
+        },
+        {
+          "type": "paragraph",
+          "text": "La convivencia social con niños y/o adolescentes de su misma edad, la comunidad de intereses y necesidades, lo ayudará a tener un desenvolvimiento y relaciones humanas mucho mayor, ampliando el círculo de amistades, lo que también debe ser aprendido en la más temprana edad, a fin de moldear aquellos rasgos positivos de su personalidad con independencia, con iniciativas propias, pero de la mano de sus padres y de los pedagogos que lo orientan."
+        },
+        {
+          "type": "pointTitle",
+          "text": "Las competencias:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Las competencias educan al ser humano a luchar lealmente en la vida, siendo lo más importante superar sus propios resultados deportivos en una y otra prueba, alcanzar nuevas y más altas metas, medidas en tiempo, en la calidad exhibida en las técnicas deportivas de la natación. Lo que se hace hoy debe ser mejor que lo realizado la vez anterior. Mañana deben superarse los límites logrados hoy. No importa si supero a otro o si otro me supera. Lo fundamental es que yo mismo me supero un día tras otro y alcanzo cada vez mejores resultados. Y eso es prepararse para la vida, para luchar en la vida, para triunfar en la vida, lo que tiene obviamente un valor educativo intrínseco de extraordinario contenido, en el entendido que la vida misma es una competencia permanente."
+        }
+      ]
+    },
+    "order": 4.3
+  },
+  {
+    "title": "Límites que no deberían excederse.",
+    "content": {
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Límites que no deberían excederse"
+        },
+        {
+          "type": "paragraph",
+          "text": "Cuando un niño que por varios años practicó la natación se destaca como un buen nadador, como un buen competidor, muchas veces se crean a su alrededor expectativas exageradas, desproporcionadas, que lejos de ayudarlo, pudieran dañarlo significativamente. Ese es el mayor peligro que tiene lugar en el ámbito de la natación infantil y de menores, cuando comienzan a excederse límites para los cuales los niños no están preparados desde ningún punto de vista, sea físico, fisiológico o intelectual. Algunos excesos que dañan a los pequeños se caracterizan por:"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Someterlos a entrenamientos exageradamente voluminosos e intensos, para los cuales su fisiología, aún inmadura y en plena evolución, no esta totalmente preparada.",
+            "Se presiona al niño para que gane la próxima competencia, como si ello fuera un problema de honor de la familia, en lugar de inculcarle que lo importante es competir y luchar por superar sus propios resultados anteriores, o cuando menos igualarlos.",
+            "Se crean rivalidades entre mayores, propiciando que los niños se vean en medio de conflictos ajenos a sus intereses, provocándoles determinada inestabilidad psicológica, pudiendo llegar al punto de rechazar la natación, ya que no pueden rechazar a los adultos por sentirse impedidos de hacerlo. Muchos niños escapan de estos conflictos por la puerta del abandono del deporte con múltiples pretextos, aparentemente ajenos.",
+            "Las exigencias que se imponen a los niños están muchas veces por encima de sus intereses, creándose un conflicto entre sus aspiraciones y las aspiraciones de los adultos.",
+            "El exceso de tensiones, derivadas de las exigencias, produce amargas experiencias, llegándose a extremos tales como niños muy nerviosos en las competencias, tensionados, con malestares, como mareos, vómitos, diarreas, y otras manifestaciones que son la expresión de una respuesta a las presiones que recibe, mecanismo que se desata entonces para distraer a quienes lo presionan, poder equilibrar su estado de ánimo y salir del ambiente tenso y agresivo que lo envuelve."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Estos pocos ejemplos son suficientes para asegurar con toda seriedad que no se deben exceder los límites en el trabajo de la natación en las edades de menores e infantiles y, sobre todo, en imponer a los niños altas exigencias, las que solo pueden provocar frustraciones y la salida prematura de la natación, afectando con ello su autoestima y dañando el libre desarrollo de su personalidad."
+        }
+      ]
+    },
+    "order": 4.4
   },
   {
     "title": "Caracterización psicológica de los nadadores",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Felicidad y bienestar: Objetivos supremos."
+        },
+        {
+          "type": "paragraph",
+          "text": "La natación infantil solo debe producir felicidad y bienestar físico y psíquico en los menores, objetivo supremo a lograr por los padres, las instituciones deportivas, los entrenadores, los Clubes y, obviamente, la Federación Nacional, sus Asociaciones y Clubes, más los otros factores que toman parte en estos procesos. Y ello se puede lograr sin interferir o comprometer el futuro competitivo de aquellos, quienes más tarde serán nadadores de alta competencia, si es que antes no la interrumpimos por nuestra forma antipedagógica de actuar."
+        },
+        {
+          "type": "paragraph",
+          "text": "Solo es necesario consolidar el diseño nuevo de la natación competitiva infantil y continuar erradicando programas mal concebidos, modificando sustancial y definitivamente todos los errores que se cometen, que se parta de criterios pedagógicos, didácticos, psicológicos y fisiológicos y, obviamente, trabajar con mayor profesionalidad por el bienestar y la felicidad de todos los niños insertados en la natación infantil y de menores."
+        }
+      ]
     },
-    "order": 6
+    "order": 4.5
   },
   {
-    "title": "Consideraciones pedagógicas",
+    "title": "Principales fundamentaciones científicas",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "titleSup",
+          "text": "Principales fundamentaciones científicas"
+        },
+        {
+          "type": "paragraph",
+          "text": "Los Programas de Entrenamiento para nadadores de las edades infantiles y en la adolescencia se sustentan en bases científicas que permiten argumentar sus contenidos, dado que tienen muy en cuenta la evolución biológica de los deportistas para los cuales han sido concebidos y diseñados."
+        },
+        {
+          "type": "subtitle",
+          "text": "Valoraciones y experiencias sobre crecimiento y desarrollo del nadador"
+        },
+        {
+          "type": "paragraph",
+          "text": "En la esfera sobre crecimiento y desarrollo de la población deportiva, partimos del criterio universalmente aceptado (Siret, R. La Habana, 1994 y John C. Riaño, Bogotá 2008) que las diferencias de maduración biológica entre uno y otro sexo oscilan en alrededor de 1,5 años, a favor de las mujeres. Es decir, las mujeres maduran como promedio 1,5 años antes que los hombres. Estas diferencias entre uno y otro sexo suelen encontrarse también entre individuos del mismo sexo, que pueden oscilar, desde pequeñas diferencias de uno a otro sujeto, hasta 4 años mayor o menor de lo que indiquen sus respectivas edades cronológicas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Si bien en América Latina no tenemos datos que puedan consultarse, sobre este tema hay grandes experiencias mundiales acumuladas (L. P. Makarenko, 1991) y debidamente comprobadas, que muestran cifras elocuentes. Estudios de grupos de adolescentes de la misma edad que no practican sistemáticamente deportes indican tres niveles diferentes de estadíos de maduración biológica con similar edad cronológica:"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "El 13% de los adolescentes estudiados tiene un ritmo acelerado de desarrollo, o desarrollo precoz.",
+            "El 70% de los adolescentes estudiados tiene un ritmo medio de desarrollo, o desarrollo coincidente con su edad cronológica.",
+            "El 17% de los adolescentes estudiados tiene un ritmo retardado de desarrollo."
+          ]
+        }
+      ]
     },
-    "order": 7
+    "order": 5
   },
   {
-    "title": "La técnica en la Natación competitiva",
+    "title": "Principales fundamentaciones científicas 2",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Valoraciones y experiencias sobre crecimiento y desarrollo del nadador"
+        },
+        {
+          "type": "paragraph",
+          "text": "Si estas diferencias son reales y universales, debemos preguntarnos seriamente porqué hacemos la misma sesión de entrenamiento con las niñas que con los niños, con los maduradores precoces que con los maduradores tardíos y también con aquellos cuya edad cronológica se corresponde con la real."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sin embargo, (L. P. Makarenko, 1991) cuando se trata de estudiar la población activa en la natación, se encuentra que solo el 23% de los participantes tienen un ritmo medio de desarrollo, encontrando cifras más altas entre los retardados biológicos, quienes son, finalmente, los que mayores resultados alcanzarán. Esto se logra como resultado de la aplicación de un sistema de selección y búsqueda de talentos, que se nutre principalmente de niños con retraso en su maduración sexual. Pero en América Latina la selección y búsqueda de talentos en natación no está institucionalizada, sino que es consecuencia de la espontaneidad, lo que introduce una significativa diferencia con otros países."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dado lo anteriormente dicho (L. P. Makarenko, 1991) se pone en evidencia que para dirigir el proceso de preparación de los deportistas jóvenes no tiene importancia práctica la edad cronológica, sino la edad biológica, que muestra su estado real de maduración."
+        },
+        {
+          "type": "paragraph",
+          "text": "Estas realidades comprobadas exigen que cuando los entrenadores aplican cargas de entrenamiento, deben estar debidamente informados sobre el tema para identificar las diferencias entre uno y otro individuo, entre uno y otro sexo, a fin de evitar una total distorsión de lo que los técnicos creen estar haciendo."
+        },
+        {
+          "type": "paragraph",
+          "text": "Según la literatura disponible, las diferencias de crecimiento y desarrollo de las poblaciones en el mundo están afectadas por varios factores, entre ellos los hábitos alimenticios, el clima, y factores estrechamente dependientes de la diversidad histórica y genética, de las diferencias en los niveles de vida de los distintos países y pueblos, incluso dentro de esos propios países y pueblos. Existe la tendencia a considerar que los factores genéticos tienen la mayor influencia en las diferencias expresadas. Se presume que el cambio climático a que está sometido el mundo en este siglo, tenga gran incidencia sobre estos factores, lo que está por estudiar."
+        },
+        {
+          "type": "paragraph",
+          "text": "Conociendo las diferencias medias y máximas que suceden en el crecimiento y desarrollo del individuo, y los factores de los cuales dependen, es importante considerar el asunto sobre el terreno, a fin de lograr exactitud en la capacidad de asimilar cargas por los participantes en un programa de entrenamiento, aplicable no solamente a la natación, sino a cualesquiera de las disciplinas deportivas en que los niños, adolescentes y jóvenes emplean fructíferamente su tiempo libre."
+        }
+      ]
     },
-    "order": 8
+    "order": 5.1
   },
   {
-    "title": "La técnica del Delfín Subacuático",
+    "title": "Principales fundamentaciones científicas 3",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Valoraciones y experiencias sobre crecimiento y desarrollo del nadador"
+        },
+        {
+          "type": "paragraph",
+          "text": "Si bien no disponemos de datos precisos sobre este particular, salvo estudios aislados y documentados en países desarrollados, se han hecho estudios parciales en Bogotá y en La Habana en algunos de los campeonatos infantiles recientes, pudiendo apreciar la existencia de una tendencia a la maduración precoz, sobre todo en el sexo femenino, lo que será necesario corroborar con estudios de una mayor amplitud poblacional en el futuro."
+        },
+        {
+          "type": "paragraph",
+          "text": "La tendencia mundial define, como resultado de las investigaciones realizadas sobre crecimiento y desarrollo, que las mujeres cierran su ciclo de crecimiento y desarrollo biológico entre los 18-21 años, mientras que en los hombres se produce entre los 21-23. Este solo dato hace presuponer que las máximas potencialidades de rendimiento físico se alcanzan precisamente en esas edades o aún después, dado que cualidades físicas como la Fuerza Máxima, presente como factor de rendimiento en la natación, solo puede llegar a niveles óptimos con la maduración total del individuo, e incluso algo más tarde."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sobre el tema de las particularidades evolutivas de los nadadores jóvenes, prestigiosos especialistas abundan sobre el tema, con elementos muy importantes:"
+        },
+        {
+          "type": "paragraph",
+          "text": "\"El organismo (L. P. Makarenko, 1991) de los niños y jóvenes experimenta complejos y multiformes cambios en el proceso de crecimiento y desarrollo. En cada etapa evolutiva, el organismo deviene en un todo único, que cristaliza en el proceso de evolución y tiene sus propias particularidades. Por un lado, estas particularidades nos obligan a dosificar con excepcional atención las cargas durante las prácticas regulares del deporte, sin admitir el agotamiento, sin violar ni demorar los procesos naturales del desarrollo biológico. Por otro lado, en el trabajo con niños y adolescentes no debemos olvidar que el organismo creciente del niño y todas sus funciones requieren un entrenamiento constante y relativamente intensivo, así como que en este periodo evolutivo existen ciertas zonas para la educación y fijación más eficaces y específicas de las cualidades y aspectos de la actividad motora, muy importantes en el sentido deportivo\"."
+        }
+      ]
     },
-    "order": 9
+    "order": 5.2
   },
   {
-    "title": "Experiencias técnicas en la preparación",
+    "title": "Principales fundamentaciones científicas 4",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Valoraciones y experiencias sobre crecimiento y desarrollo del nadador"
+        },
+        {
+          "type": "paragraph",
+          "text": "Otro especialista ruso, (I. A. Arshavski, 1967) expone su punto de vista sobre el mismo tema:"
+        },
+        {
+          "type": "paragraph",
+          "text": "\"Los datos científicos referentes a la fisiología evolutiva dicen lo siguiente: La actividad muscular, que supera algo el nivel óptimo y provoca el agotamiento, pero queda entre los límites de las posibilidades de adaptación del organismo en cada periodo evolutivo, no solo contribuye al auge de las capacidades físicas del niño, sino también determina su desarrollo individual en el marco de los mecanismos genéticamente condicionados. En otros términos, las cargas físicas correctamente dosificadas ejercen una influencia estimulante en el organismo creciente de niños y adolescentes. En este sentido, gozan de significado predeterminante las formas de fondo en la actividad, que excluyen las tensiones máximas. Semejantes cargas físicas, relativamente suaves y duraderas, influyen de manera positiva en el sistema esquelético-muscular, los sistemas vegetativos, el intelecto y la duración de la vida\"."
+        },
+        {
+          "type": "paragraph",
+          "text": "El proceso evolutivo puede ser considerado (L. P. Makarenko, 1991) desde el punto de vista del cuidado y precaución en la aplicación y dosificación de cargas físicas, en tres momentos importantes:"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "\"El periodo prepuberal, que se caracteriza por el alargamiento significativo del cuerpo de los niños. Se hace mucho más evidente en el sexo femenino, cuyo crecimiento se aprecia desde los 9-10 años, mientras que en los varones ello sucede un tanto más tarde, alrededor de los 11 años\".",
+            "\"El periodo de pubertad propiamente dicho, denominado muy a menudo como de viraje o de virilidad, se caracteriza por transformaciones morfológicas y funcionales rápidas en los tejidos y órganos, que en 2 ó 3 años hacen pasar a saltos al organismo al estado de madurez. En este periodo, después del crecimiento impetuoso del cuerpo, aparecen las formas definitivas de las particularidades sexuales y van consolidándose los mecanismos psíquicos que se encuentran en la naturaleza de cada individuo. Se produce generalmente entre los 12-15 años en las niñas y entre los 14-17 años en los varones\".",
+            "\"El periodo de postpubertad se caracteriza por el paso paulatino del organismo al estado de madurez. Para el sexo femenino, como promedio, el crecimiento de su cuerpo concluye entre los 16-17 años y para los varones será entre los 18-19 años de edad cronológica. Sin embargo, la madurez biológica total sucede más tarde, siendo para las mujeres entre los 18 y 21 años y para los hombres entre los 21 y 23 años de edad cronológica\"."
+          ]
+        }
+      ]
     },
-    "order": 10
+    "order": 5.3
   },
   {
-    "title": "Calentamiento y Regeneración",
+    "title": "Principales fundamentaciones científicas 5",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Valoraciones y experiencias sobre crecimiento y desarrollo del nadador"
+        },
+        {
+          "type": "paragraph",
+          "text": "La naturaleza del proceso evolutivo de los adolescentes trae consigo también tres tipos de deportistas, cuyas características, actuación competitiva y rendimientos en la natación tiene un comportamiento bastante constante. Analicémoslos por separado para su mayor comprensión:"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Los adolescentes de desarrollo biológico acelerado, sean varones o niñas, se distinguen generalmente por una mayor fuerza muscular y capacidad de trabajo, altos indicadores de los sistemas cardiovascular y respiratorio y rendimientos importantes en las distancias cortas, preferentemente aquellas de 50 y 100 metros. Su estatura generalmente no es muy alta. Sus potencialidades futuras resultan limitadas, suelen estancarse en sus resultados deportivos en edades que son cronológicamente tempranas, pero que, en términos biológicos, por la aceleración que presentan, son mucho mayores. Este tipo de nadador requiere de un apoyo extraordinario, de una educación adecuada respecto al tema de sus posibilidades como tal, a fin de evitar, cuando sus resultados se estanquen, aquellas incomprensiones y conflictos que puedan dañarlo mucho espiritualmente y en su autoestima.",
+            "Los adolescentes de desarrollo biológico medio o estándar, aquellos cuya edad biológica se corresponde con la cronológica, suelen tener menos conflictos, por cuanto constituyen generalmente la mayoría del grupo. No se distinguen con rendimientos tempranos, sino generalmente en correspondencia con la edad cronológica que van alcanzando. No tienen preponderancia por determinadas distancias y técnicas, como no sean aquellas para las cuales tienen mayor vocación o cualidades naturales. Suelen alcanzar una estatura acorde con la media, adecuada para proponerse rendimientos de buen nivel competitivo, en muchos casos excelentes.",
+            "Los adolescentes de desarrollo tardío, aquellos que pueden tener una edad biológica incluso hasta 3 ó 4 años menor que la edad cronológica, suelen alcanzar una estatura más alta que las señaladas antes. Los nadadores que alcanzan mayor estatura son, generalmente, los de mayores potencialidades para alcanzar un nivel internacional en sus rendimientos. Para la primera etapa de la adolescencia sus resultados resultan relativamente pobres, con una técnica inapropiada y defectuosa para la edad, dañada por la dificultad de no poder manejar con buena precisión sus extremidades superiores e inferiores, que únicamente podrán resolver una vez que sus músculos se ensanchen y adquieran la fuerza suficiente para realizar los movimientos con precisión y seguridad, lo que sucederá al final de su desarrollo puberal. Son los de mayores posibilidades potenciales, pero muchas veces abandonan el deporte activo prematuramente, precisamente por el retraso que se produce en sus rendimientos, por la incomprensión de quienes lo atienden, e incluso defraudados por la presión que sobre ellos se ejerce para que logren mayores resultados deportivos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "He aquí que interesantes contradicciones existen en la práctica, a las cuales un buen entrenador deberá prestarle toda la atención, no solamente por preservar los rendimientos para cuando deban producirse, de manera absolutamente individual, sino para evitar traumas y experiencias negativas que suelen dañar la estabilidad psíquica de los adolescentes activos en los deportes acuáticos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Para los entrenadores es muy importante aprender a dominar y descifrar la edad biológica de sus nadadores, sino de todos, al menos de aquellos que al parecer tienen facultades para destacarse en el deporte. Existen fórmulas científicas para determinar la edad biológica:"
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Mediante una placa de la mano, que revela el grado de osificación de los huesos, exactamente el estadío de desarrollo del sujeto dado.",
+            "Los estadíos de los caracteres sexuales secundarios, es decir, el grado de desarrollo que ha alcanzado el sujeto, entre otras."
+          ]
+        },
+
+        {
+          "type": "paragraph",
+          "text": "El método de la placa es más preciso, más exacto. Sin embargo, el otro método es más asequible, proporcionando una alta precisión si el observador conoce del tema y tiene una buena relación con los padres de los niños."
+        }
+      ]
     },
-    "order": 11
+    "order": 5.4
   },
   {
-    "title": "La formación de valores en los nadadores",
+    "title": "Principales fundamentaciones científicas 6",
     "content": {
-      "elements": {}
+      "elements": [
+        {
+          "type": "subtitle",
+          "text": "Consideraciones fisiológicas y metodológicas"
+        }
+      ]
     },
-    "order": 12
+    "order": 5.5
   },
   {
     "title": "Necesidades del control médico deportivo",

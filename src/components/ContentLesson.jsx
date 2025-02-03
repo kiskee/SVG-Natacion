@@ -1,9 +1,13 @@
-export default function ContentLesson({ title, content , handleNext, handlePrevius}) {
+export default function ContentLesson({
+  leyend,
+  content,
+  handleNext,
+  handlePrevius,
+}) {
   return (
     <div className="p-8 bg-cyan-950 shadow-lg  border border-gray-800 hover:border-cyan-500/30 transition-colors duration-300">
-      {/* <h1 className="text-3xl font-bold mb-6 text-white bg-gradient-to-r from-cyan-500 to-cyan-400 bg-clip-text text-transparent">
-        {title}
-      </h1> */}
+      {/* Leyenda en la parte superior izquierda */}
+      <div className="text-sm text-gray-400 mb-4">Lección {leyend}</div>
       <div className="space-y-6">
         {content.elements.map((element, index) => {
           switch (element.type) {
@@ -62,8 +66,29 @@ export default function ContentLesson({ title, content , handleNext, handlePrevi
 
             case "subtitle":
               return (
-                <h1 className="text-4xl font-bold mb-6 text-yellow-500 text-center" key={index}>
+                <h1
+                  className="text-4xl font-bold mb-6 text-yellow-500 text-center"
+                  key={index}
+                >
                   {element.text}
+                </h1>
+              );
+            case "titleSup":
+              return (
+                <h1
+                  className="text-5xl font-bold mb-6 text-yellow-500 text-center"
+                  key={index}
+                >
+                  {element.text}
+                </h1>
+              );
+            case "pointTitle":
+              return (
+                <h1
+                  className="text-3xl font-bold mb-6 text-yellow-500 text-left"
+                  key={index}
+                >
+                  * {element.text}
                 </h1>
               );
             default:
@@ -73,16 +98,16 @@ export default function ContentLesson({ title, content , handleNext, handlePrevi
       </div>
       <div className="mt-8 flex justify-between">
         <button
-         onClick={handlePrevius}
-          className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-cyan-500 transition-colors duration-300 disabled:opacity-50"
+          onClick={handlePrevius}
+          className="px-4 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-500 transition-colors duration-300 disabled:opacity-50"
           //disabled={!onPrevious}
         >
           Lección Anterior
         </button>
         <button
-        onClick={handleNext}
-          className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-cyan-500 transition-colors duration-300 disabled:opacity-50"
-        //  disabled={!onNext}
+          onClick={handleNext}
+          className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-cyan-500 transition-colors duration-300 disabled:opacity-50"
+          //  disabled={!onNext}
         >
           Lección Siguiente
         </button>
