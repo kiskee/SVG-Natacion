@@ -25,7 +25,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 
 const formSchema = z.object({
@@ -121,6 +121,11 @@ export default function SingInDialog({ openDialog, closeDialog }) {
     setShowPassword(!showPassword);
   };
 
+  const OnResetPassword = ()=> {
+    closeDialog(false);
+    navigate("/reset", { replace: true });
+  }
+
   // body
   return (
     <>
@@ -153,115 +158,127 @@ export default function SingInDialog({ openDialog, closeDialog }) {
               </DialogDescription>
             )}
           </DialogHeader>
-          
-          {isLoading ? (<div className="text-center">
-            <h1 className="text-4xl font-bold text-cyan-500 mb-4 animate-pulse">
-            Cargando tu perfil, gracias por tu paciencia...
-            </h1>
-            <div className="flex justify-center">
-              {/* Spinner animado con Tailwind */}
-              <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
+
+          {isLoading ? (
+            <div className="text-center">
+              <h1 className="text-4xl font-bold text-cyan-500 mb-4 animate-pulse">
+                Cargando tu perfil, gracias por tu paciencia...
+              </h1>
+              <div className="flex justify-center">
+                {/* Spinner animado con Tailwind */}
+                <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
+              </div>
             </div>
-          </div>) : (<>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
-              <div className="grid gap-4 py-4">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem
-                      className="grid grid-cols-4 items-center gap-4 mr-4"
-                      id="email-form-item"
+          ) : (
+            <>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+                  <div className="grid gap-4 py-4">
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem
+                          className="grid grid-cols-4 items-center gap-4 mr-4"
+                          id="email-form-item"
+                        >
+                          <FormLabel className="text-right">Email</FormLabel>
+                          <div className="col-span-3">
+                            <FormControl>
+                              <Input
+                                placeholder="peduarte@me.com"
+                                type="email"
+                                className="w-2/3"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="password"
+                      render={({ field }) => (
+                        <FormItem
+                          className="grid grid-cols-4 items-center gap-4 mr-4"
+                          id="password-form-item"
+                        >
+                          <FormLabel className="text-right">
+                            Contraseña
+                          </FormLabel>
+                          <div className="col-span-3">
+                            <div className="flex-row flex">
+                              <FormControl>
+                                <Input
+                                  type={showPassword ? "text" : "password"}
+                                  className="w-2/3"
+                                  placeholder="Hello@123"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <button
+                                type="button"
+                                onClick={togglePasswordVisibility}
+                                className="ml-4"
+                                aria-label={
+                                  showPassword
+                                    ? "Ocultar contraseña"
+                                    : "Mostrar contraseña"
+                                }
+                              >
+                                {showPassword ? (
+                                  <EyeOff className="w-5 h-5 text-gray-500" />
+                                ) : (
+                                  <Eye className="w-5 h-5 text-gray-500" />
+                                )}
+                              </button>
+                            </div>
+                            <FormDescription className="text-xs mt-2">
+                              Debe incluir mayúsculas, minúsculas, números y
+                              caracteres especiales (@$!%*?&)
+                            </FormDescription>
+                            <FormMessage />
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div className="flex items-center flex-col gap-4">
+                    <Button
+                      type="submit"
+                      className="bg-yellow-500 text-black text-xl w-2/3"
                     >
-                      <FormLabel className="text-right">Email</FormLabel>
-                      <div className="col-span-3">
-                        <FormControl>
-                          <Input
-                            placeholder="peduarte@me.com"
-                            type="email"
-                            className="w-2/3"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </div>
-                    </FormItem>
-                  )}
-                />
+                      Ingresar
+                    </Button>
+                  </div>
+                </form>
+              </Form>
 
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem
-                      className="grid grid-cols-4 items-center gap-4 mr-4"
-                      id="password-form-item"
-                    >
-                      <FormLabel className="text-right">Contraseña</FormLabel>
-                      <div className="col-span-3">
-                        <div className="flex-row flex">
-                          <FormControl>
-                            <Input
-                              type={showPassword ? "text" : "password"}
-                              className="w-2/3"
-                              placeholder="Hello@123"
-                              {...field}
-                            />
-                          </FormControl>
-                          <button
-                            type="button"
-                            onClick={togglePasswordVisibility}
-                            className="ml-4"
-                            aria-label={
-                              showPassword
-                                ? "Ocultar contraseña"
-                                : "Mostrar contraseña"
-                            }
-                          >
-                            {showPassword ? (
-                              <EyeOff className="w-5 h-5 text-gray-500" />
-                            ) : (
-                              <Eye className="w-5 h-5 text-gray-500" />
-                            )}
-                          </button>
-                        </div>
-                        <FormDescription className="text-xs mt-2">
-                          Debe incluir mayúsculas, minúsculas, números y
-                          caracteres especiales (@$!%*?&)
-                        </FormDescription>
-                        <FormMessage />
-                      </div>
-                    </FormItem>
-                  )}
-                />
-              </div>
-              <div className="flex items-center flex-col gap-4">
-                <Button
-                  type="submit"
-                  className="bg-yellow-500 text-black text-xl w-2/3"
-                >
-                  Ingresar
-                </Button>
-              </div>
-            </form>
-          </Form>
+              <Button
+                className="bg-white text-black text-xl w-2/3 "
+                onClick={googleLogin}
+              >
+                Entra con Google
+              </Button>
 
-          <Button
-            className="bg-white text-black text-xl w-2/3 "
-            onClick={googleLogin}
-          >
-            Entra con Google
-          </Button>
+              <Button
+                onClick={OnRegister}
+                className="bg-cyan-500 text-black text-xl w-2/3 "
+              >
+                Registrate
+              </Button>
+              <p
+                onClick={OnResetPassword}
+                className="text-red-500 cursor-pointer"
+              >
+                Olvidaste tu clave?
+              </p>
+            </>
+          )}
 
-          <Button
-            onClick={OnRegister}
-            className="bg-cyan-500 text-black text-xl w-2/3 "
-          >
-            Registrate
-          </Button>
-          </>)}
-          
           <p className="text-xs">
             Al utilizar SVG - Natacion, acepta la recopilación de datos de uso
             para análisis

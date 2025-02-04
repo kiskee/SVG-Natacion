@@ -11,6 +11,8 @@ import Courses from "./pages/Courses";
 import UserProfile from "./pages/UserProfile";
 import CoursesInfoPay from "./pages/CoursesInfoPay";
 import PaymentCheck from "./pages/PaymentCheck";
+import ChangePassword from "./pages/ChangePassword";
+import ChangePassEmail from "./pages/ChangePassEmail";
 
 export default function App() {
   return (
@@ -41,6 +43,8 @@ export default function App() {
             path="/payment-check"
             element={<ProtectedRoute element={<PaymentCheck />} />}
           />
+          <Route path="/change-pass" element={<ChangePassword />} />
+          <Route path="/reset" element={<ChangePassEmail />} />
         </Routes>
       </Layaut>
     </Router>

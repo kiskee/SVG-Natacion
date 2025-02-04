@@ -167,6 +167,13 @@ const ModuleService = {
       return response.data;
     },
   },
+
+  password:{
+    find: async (email) => {
+      const response = await apiClient.post(`/auth/forgot-password/${email}`,);
+      return response.data;
+    },
+  }
 };
 
 export default ModuleService;
