@@ -173,6 +173,10 @@ const ModuleService = {
       const response = await apiClient.post(`/auth/forgot-password/${email}`,);
       return response.data;
     },
+    reset: async (data) => {
+      const response = await apiClient.post(`/auth/reset-password`, data);
+      return response.data;
+    },
   }
 };
 
